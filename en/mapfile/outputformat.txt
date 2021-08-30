@@ -399,7 +399,7 @@ FORMATOPTION [option]
    pair: OUTPUTFORMAT; IMAGEMODE
    :name: mapfile-outputformat-imagemode
     
-IMAGEMODE [PC256|RGB|RGBA|INT16|FLOAT32|FEATURE]
+IMAGEMODE [PC256|RGB|RGBA|BYTE|INT16|FLOAT32|FEATURE]
     Selects the imaging mode in which the output is generated. Does matter 
     for non-raster formats like Flash. Not all formats support all 
     combinations. (optional)
