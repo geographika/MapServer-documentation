@@ -1,0 +1,39 @@
+name: Update Docs
+on:
+  push:
+    branches:
+    - main
+
+jobs:
+  docs:
+    runs-on: ubuntu-latest
+    steps:
+          # https://github.com/marketplace/actions/checkout
+        - uses: actions/checkout@v2
+          with:
+            fetch-depth: 0
+        # https://github.com/marketplace/actions/setup-python
+        # ^-- This gives info on matrix testing.
+        - name: Install Python
+          uses: actions/setup-python@v2
+          with:
+            python-version: 3.9         
+        - name: Build docs
+          run: "./scripts/travis_build_docs.sh"
+        - name: Install mapscript sdist
+          run: |      
+            pip install --index-url https://test.pypi.org/simple/ mapscript==7.7.4
+        - name: Add .nojekyll file
+          run: |  
+            touch ./build/html/.nojekyll
+            
+        # setup an access key from https://github.com/geographika/MapServer-documentation/settings/secrets/actions
+        - name: Configure git
+          env:
+            TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          run: git config --global url."https://${TOKEN}:x-oauth-basic@github.com/".insteadOf "https://github.com/"
+          
+          # https://docs.github.com/en/actions/learn-github-actions/environment-variables
+        - name: Setup GitHub pages            
+          run: ./scripts/travis_update_pages.sh $GITHUB_WORKSPACE/build /tmp     
+- 
