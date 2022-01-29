@@ -7,7 +7,7 @@ git config user.email "mapserverbot@mapserver.bot"
 git config user.name "MapServer deploybot"
 
 # clone without any existing files
-git clone --no-checkout --depth=1 git@github.com:geographika/MapServer-documentation.git $destdir/MapServer-documentation
+git clone --no-checkout --depth=1 https://github.com/geographika/MapServer-documentation.git $destdir/MapServer-documentation
 
 cd $destdir/MapServer-documentation
 git checkout -B gh-pages
