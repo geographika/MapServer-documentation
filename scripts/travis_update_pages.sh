@@ -3,8 +3,8 @@
 builddir=$1
 destdir=$2
 
-git config user.email "mapserverbot@mapserver.bot"
-git config user.name "MapServer deploybot"
+git config --local user.email "action@github.com"
+git config --local user.name "GitHub Action"
 
 # clone without any existing files
 git clone --no-checkout --depth=1 https://github.com/geographika/MapServer-documentation.git $destdir/MapServer-documentation
