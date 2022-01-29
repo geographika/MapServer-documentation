@@ -1,4 +1,4 @@
-name: Update Docs
+name: "Update Docs"
 on:
   push:
     branches:
@@ -35,5 +35,6 @@ jobs:
           
           # https://docs.github.com/en/actions/learn-github-actions/environment-variables
         - name: Setup GitHub pages            
-          run: ./scripts/travis_update_pages.sh $GITHUB_WORKSPACE/build /tmp     
-- 
+          run: |
+            ./scripts/travis_update_pages.sh $GITHUB_WORKSPACE/build /tmp
+
