@@ -232,7 +232,8 @@ in the <a class="reference internal" href="outputformat.html#outputformat"><span
 </dd>
 </dl>
 <dl class="simple" id="mapfile-scalebar-intervals">
-<dt>INTERVALS [integer]</dt><dd><p>Number of intervals to break the scalebar into. Default is 4.</p>
+<dt>INTERVALS [integer]</dt><dd><p>Number of intervals to break the scalebar into. Default is 4.
+Minimum value is 1 and maximum is 100.</p>
 </dd>
 </dl>
 <dl class="simple" id="mapfile-scalebar-label">
@@ -244,7 +245,8 @@ in the <a class="reference internal" href="outputformat.html#outputformat"><span
 <p><span class="versionmodified added">New in version 7.2.</span></p>
 </div>
 <p>‘OFFSET’ moves the scalebar closer to the center of the map.
-Examples:</p>
+Minimum value is -50 and maximum is 50.</p>
+<p>Examples:</p>
 <ul class="simple">
 <li><p>If <cite>POSITION</cite> is “LL” then “OFFSET 5 2” will shift the scalebar 2
 pixels up and 5 pixels to the right.</p></li>
@@ -294,7 +296,9 @@ scalebar after all labels in the cache have been drawn. Default is false.</p>
 </dd>
 </dl>
 <dl class="simple" id="mapfile-scalebar-size">
-<dt>SIZE [x][y]</dt><dd><p>Size in pixels of the scalebar. Labeling is not taken into account.</p>
+<dt>SIZE [x][y]</dt><dd><p>Size in pixels of the scalebar. Labeling is not taken into account.
+Minimum x (width) is 5 and minimum y (height) is 2.
+Maximum x (width) is 1000 and maximum y (height) is 100.</p>
 </dd>
 </dl>
 <dl class="simple" id="mapfile-scalebar-status">
@@ -375,8 +379,8 @@ are not valid scalebar units. <cite>Nauticalmiles</cite> was added in MapServer 
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="../copyright.html">Copyright</a> 2022, Open Source Geospatial Foundation.
-      Last updated on 2022-01-29.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
+      Last updated on 2022-04-04.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
     </div>
   </body>
 </html>

@@ -149,7 +149,7 @@ generation will be much faster, since string comparison is avoided.</p>
 <dl id="mapfile-label-angle">
 <dt>ANGLE [double|auto|auto2|follow|attribute]</dt><dd><ul>
 <li><p>Angle, counterclockwise, given in degrees, to draw the label.
-Default is 0.</p></li>
+Default is 0, and must be in the range -360 to 360.</p></li>
 <li><p>AUTO allows MapServer to compute the angle. Valid for LINE
 layers only.</p></li>
 <li><p>AUTO2 same as AUTO, except no logic is applied to try to keep
@@ -340,7 +340,7 @@ only occur after the defined number of characters.</p>
 <p>The associated RFC document for this feature is <a class="reference internal" href="../development/rfc/ms-rfc-40.html#rfc40"><span class="std std-ref">MS RFC 40: Support Label Text Transformations</span></a>.</p>
 <p>Support for negative MAXLENGTH that implied forced linebreaks is not
 supported since version 7, a workaround implies pre-processing such labels
-to include linebreaks or wrap characters.</p>
+to include linebreaks or wrap characters. Must be greater than 0.</p>
 </dd>
 </dl>
 <dl id="mapfile-label-maxoverlapangle">
@@ -353,7 +353,7 @@ the value up or down depending on the type of data they are
 dealing with and their tolerance to bad overlap in labels.
 As per RFC 60, if MAXOVERLAPANGLE is set to 0, then we fall back
 on pre-6.0 behavior which was to use maxoverlapangle = 0.4*MS_PI
-(40% of 180 degrees = 72degree).</p>
+(40% of 180 degrees = 72degree). Must be between 0 to 360.</p>
 <p>The associated RFC document for this feature is <a class="reference internal" href="../development/rfc/ms-rfc-60.html#rfc60"><span class="std std-ref">MS RFC 60: Labeling enhancement: ability to skip ANGLE FOLLOW labels with too much character overlap</span></a>.</p>
 </dd>
 </dl>
@@ -363,7 +363,7 @@ on pre-6.0 behavior which was to use maxoverlapangle = 0.4*MS_PI
 </div>
 <p>Minimum scale at which this <a class="reference internal" href="#label"><span class="std std-ref">LABEL</span></a> is drawn. Scale is given
 as the denominator of the actual scale fraction, for example for a
-map at a scale of 1:24,000 use 24000.</p>
+map at a scale of 1:24,000 use 24000. Must be greater or equal to 0.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p><a class="reference internal" href="../glossary.html#term-Map-Scale"><span class="xref std std-term">Map Scale</span></a></p>
@@ -373,14 +373,14 @@ map at a scale of 1:24,000 use 24000.</p>
 <dl class="simple" id="mapfile-label-maxsize">
 <dt>MAXSIZE [double]</dt><dd><p>Maximum font size to use when scaling text (pixels). Default is 256.
 Starting from version 5.4, the value can also be a fractional value
-(and not only integer).
+(and not only an integer). Must be greater than 0.
 See <a class="reference internal" href="layer.html#layer"><span class="std std-ref">LAYER</span></a> <a class="reference internal" href="layer.html#symbolscaledenom"><span class="std std-ref">SYMBOLSCALEDENOM</span></a>.</p>
 </dd>
 </dl>
 <dl class="simple" id="mapfile-label-mindistance">
 <dt>MINDISTANCE [integer]</dt><dd><p>Minimum distance between duplicate labels. Given in pixels.
 Starting from version 7.2, the distance is calculated from the
-label boundary. Prior versions used the label center.</p>
+label boundary. Prior versions used the label center. Must be greater than 0.</p>
 </dd>
 </dl>
 <dl class="simple" id="mapfile-label-minfeaturesize">
@@ -389,7 +389,7 @@ line data the overall length of the displayed line is used, for
 polygons features the smallest dimension of the bounding box is
 used. “Auto” keyword tells MapServer to only label features that
 are larger than their corresponding label. Available for cached
-labels only.</p>
+labels only. Must be greater than 0.</p>
 </dd>
 </dl>
 <dl id="mapfile-label-minscaledenom">
@@ -398,7 +398,7 @@ labels only.</p>
 </div>
 <p>Maximum scale at which this <a class="reference internal" href="#label"><span class="std std-ref">LABEL</span></a> is drawn. Scale is given
 as the denominator of the actual scale fraction, for example for a
-map at a scale of 1:24,000 use 24000.</p>
+map at a scale of 1:24,000 use 24000. Must be greater or equal to 0.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p><a class="reference internal" href="../glossary.html#term-Map-Scale"><span class="xref std std-term">Map Scale</span></a></p>
@@ -408,7 +408,7 @@ map at a scale of 1:24,000 use 24000.</p>
 <dl class="simple" id="mapfile-label-minsize">
 <dt>MINSIZE [double]</dt><dd><p>Minimum font size to use when scaling text (pixels). Default is 4.
 Starting from version 5.4, the value can also be a fractional value
-(and not only integer).
+(and not only integer). Must be greater than 0.
 See <a class="reference internal" href="layer.html#layer"><span class="std std-ref">LAYER</span></a> <a class="reference internal" href="layer.html#symbolscaledenom"><span class="std std-ref">SYMBOLSCALEDENOM</span></a>.</p>
 </dd>
 </dl>
@@ -485,7 +485,7 @@ renders these as a ‘halo’ effect: recommended values are 3 or 5. If the
 renderer supports it and the text size is variable, the outline will be
 scaled proportionally to the text and the value specified as
 OUTLINEWIDTH is therefore the width at the same scale at which the
-<a class="reference internal" href="#size">SIZE</a> is specified.</p>
+<a class="reference internal" href="#size">SIZE</a> is specified. Must be greater than 0.</p>
 </dd>
 </dl>
 <dl id="mapfile-label-partials">
@@ -540,7 +540,7 @@ performance for using label priorities.</p>
 </div>
 <p>The label will be repeated on every line of a multiline shape and
 will be repeated multiple times along a given line at an interval
-of REPEATDISTANCE pixels.</p>
+of REPEATDISTANCE pixels. Must be greater than 0.</p>
 <p>The associated RFC document for this feature is <a class="reference internal" href="../development/rfc/ms-rfc-57.html#rfc57"><span class="std std-ref">MS RFC 57: Labeling enhancements: ability to repeat labels along a line/multiline</span></a>.</p>
 </dd>
 </dl>
@@ -632,7 +632,7 @@ as part of this expression:</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The SIZE value can only be an integer (not a fractional
-value), because the renderer Freetype only accepts integers.</p>
+value), because the renderer Freetype only accepts integers. Must be greater than 0.</p>
 </div>
 </dd>
 </dl>
@@ -763,8 +763,8 @@ for conditional line wrapping after a given number of characters.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="../copyright.html">Copyright</a> 2022, Open Source Geospatial Foundation.
-      Last updated on 2022-01-29.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
+      Last updated on 2022-04-04.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
     </div>
   </body>
 </html>

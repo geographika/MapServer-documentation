@@ -1370,7 +1370,7 @@ And {KEY} is the key of the GDAL metadata item.</p>
 on the layer, typically to configure some metadata in the resulting raster
 file that depends on that layer.</p>
 <p>For GDAL drivers that support band-specific metadata (e.g GeoTIFF, netCDF),
-it is also possible to use a MapServer  metadata item named
+it is also possible to use a MapServer metadata item named
 <strong>wcs_outputformat_{OUTPUTFORMATNAME}_mdi_BAND_{bandnumber}_{DOMAIN}_{KEY}</strong>.
 bandnumber will be automatically adjusted when passed to GDAL so that the
 WCS band subsetting is properly taken into account.</p>
@@ -1393,6 +1393,33 @@ netCDF attribute belonging to the corresponding variable.</p>
 the output of the WCS request too, and no manual wcs_outputformat_netCDF_mdi_*
 item is defined, then MapServer will automatically forward metadata from the
 input dataset to the output file.</p>
+<p>For netCDF output, if the input dataset has multiple bands, it is possible to
+generate a 3D dataset with the extra dimension being typically time or Z.</p>
+<p>For each band, the MapServer metadata item
+<strong>wcs_outputformat_{OUTPUTFORMATNAME}_mdi_BAND_{bandnumber}_default__NETCDF_DIM_{DIMNAME}</strong>
+must be defined, where DIMNAME is the name of the extra dimension (e.g. “time”)</p>
+<p>In addition to that, netCDF attributes can be defined on the extra
+dimension by setting metadata items of the form</p>
+<p><strong>wcs_outputformat_{OUTPUTFORMATNAME}_mdi_default_{DIMNAME}#{ATTRNAME}</strong></p>
+<p>where {ATTRNAME} is substituted with the name of the attribute to set on
+the extra dimension (e.g. “standard_name”, “units”, etc.)</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Metadata items to apply to the &quot;time&quot; extra dimension.</span>
+<span class="s2">&quot;wcs_outputformat_netCDF_mdi_default_time#calendar&quot;</span> <span class="s2">&quot;standard&quot;</span>
+<span class="s2">&quot;wcs_outputformat_netCDF_mdi_default_time#standard_name&quot;</span> <span class="s2">&quot;time&quot;</span>
+<span class="s2">&quot;wcs_outputformat_netCDF_mdi_default_time#units&quot;</span> <span class="s2">&quot;hours since 1900-01-01 00:00:00&quot;</span>
+
+<span class="c1"># Values of each band along the &quot;time&quot; extra dimension.</span>
+<span class="s2">&quot;wcs_outputformat_netCDF_mdi_BAND_1_default_NETCDF_DIM_time&quot;</span> <span class="s2">&quot;10&quot;</span>
+<span class="s2">&quot;wcs_outputformat_netCDF_mdi_BAND_2_default_NETCDF_DIM_time&quot;</span> <span class="s2">&quot;20&quot;</span>
+<span class="s2">&quot;wcs_outputformat_netCDF_mdi_BAND_3_default_NETCDF_DIM_time&quot;</span> <span class="s2">&quot;30&quot;</span>
+<span class="s2">&quot;wcs_outputformat_netCDF_mdi_BAND_4_default_NETCDF_DIM_time&quot;</span> <span class="s2">&quot;40&quot;</span>
+</pre></div>
+</div>
+<p>In the special case of the DATA of the layer being a netCDF 3D dataset and
+the output of the WCS request is netCDF too, and no manual wcs_outputformat_netCDF_mdi_*
+item is defined, then MapServer will automatically forward metadata from the
+input dataset to the output file to generate a netCDF 3D dataset.</p>
 </li>
 </ul>
 <p><em>Axes Descriptions</em> (WCS 1.x only)</p>
@@ -1674,8 +1701,8 @@ Service of Canada.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="../copyright.html">Copyright</a> 2022, Open Source Geospatial Foundation.
-      Last updated on 2022-01-29.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
+      Last updated on 2022-04-04.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
     </div>
   </body>
 </html>

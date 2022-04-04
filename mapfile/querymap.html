@@ -153,7 +153,9 @@ semi-translucent magenta, the following is used:</p>
 </dd>
 </dl>
 <dl class="simple" id="mapfile-querymap-size">
-<dt>SIZE [x][y]</dt><dd><p>Size of the map in pixels. Defaults to the size defined in the map object.</p>
+<dt>SIZE [x][y]</dt><dd><p>Size of the map in pixels. Defaults to the size defined in the map object.
+Minimum x and y values are -1 (to allow for querymaps to be hidden),
+and maximum values are the same as the parent MAP MAXSIZE.</p>
 </dd>
 </dl>
 <dl class="simple" id="mapfile-querymap-status">
@@ -225,8 +227,8 @@ drawn normally.</p></li>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="../copyright.html">Copyright</a> 2022, Open Source Geospatial Foundation.
-      Last updated on 2022-01-29.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
+      Last updated on 2022-04-04.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
     </div>
   </body>
 </html>

@@ -413,7 +413,7 @@ LAYER-level.</p>
 <dt>INITIALGAP [double]</dt><dd><div class="versionadded">
 <p><span class="versionmodified added">New in version 6.2.</span></p>
 </div>
-<p><cite>INITIALGAP</cite> is useful for styling dashed lines.</p>
+<p><cite>INITIALGAP</cite> is useful for styling dashed lines. Value must be greater or equal to 0.</p>
 <p>If used with <cite>GAP</cite>, <cite>INITIALGAP</cite> specifies the distance to the
 first symbol on a styled line.</p>
 <p>If used with <cite>PATTERN</cite>, <cite>INITIALGAP</cite> specifies the distance to
@@ -471,7 +471,7 @@ the first dash on a dashed line.</p>
 </div>
 <p>Sets the max length of the <cite>miter</cite> <cite>LINEJOIN</cite> type. The value
 represents a coefficient which multiplies a current symbol
-size. Default is 3.  See <a class="reference internal" href="symbology/construction.html#sym-construction"><span class="std std-ref">Cartographical Symbol Construction with MapServer</span></a> for explanation
+size. Default is 3. Must be greater than 0. See <a class="reference internal" href="symbology/construction.html#sym-construction"><span class="std std-ref">Cartographical Symbol Construction with MapServer</span></a> for explanation
 and examples.</p>
 </dd>
 </dl>
@@ -481,7 +481,7 @@ and examples.</p>
 </div>
 <p>Minimum scale at which this <a class="reference internal" href="#style"><span class="std std-ref">STYLE</span></a> is drawn. Scale is given
 as the denominator of the actual scale fraction, for example for a
-map at a scale of 1:24,000 use 24000.</p>
+map at a scale of 1:24,000 use 24000. Must be greater or equal to 0.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p><a class="reference internal" href="../glossary.html#term-Map-Scale"><span class="xref std std-term">Map Scale</span></a></p>
@@ -489,14 +489,14 @@ map at a scale of 1:24,000 use 24000.</p>
 </dd>
 </dl>
 <dl class="simple" id="mapfile-style-maxsize">
-<dt>MAXSIZE [double]</dt><dd><p>Maximum size in pixels to draw a symbol. Default is 500.  Starting
+<dt>MAXSIZE [double]</dt><dd><p>Maximum size in pixels to draw a symbol. Default is 500. Must be greater than 0. Starting
 from version 5.4, the value can also be a decimal value (and not
 only integer).
 See <a class="reference internal" href="layer.html#layer"><span class="std std-ref">LAYER</span></a> <a class="reference internal" href="layer.html#symbolscaledenom"><span class="std std-ref">SYMBOLSCALEDENOM</span></a>.</p>
 </dd>
 </dl>
 <dl class="simple" id="mapfile-style-maxwidth">
-<dt>MAXWIDTH [double]</dt><dd><p>Maximum width in pixels to draw the line work. Default is 32.
+<dt>MAXWIDTH [double]</dt><dd><p>Maximum width in pixels to draw the line work. Default is 32. Must be greater than 0.
 Starting from version 5.4, the value can also be a decimal value
 (and not only integer).
 See <a class="reference internal" href="layer.html#layer"><span class="std std-ref">LAYER</span></a> <a class="reference internal" href="layer.html#symbolscaledenom"><span class="std std-ref">SYMBOLSCALEDENOM</span></a>.</p>
@@ -508,7 +508,7 @@ See <a class="reference internal" href="layer.html#layer"><span class="std std-r
 </div>
 <p>Maximum scale at which this <a class="reference internal" href="#style"><span class="std std-ref">STYLE</span></a> is drawn. Scale is given
 as the denominator of the actual scale fraction, for example for a
-map at a scale of 1:24,000 use 24000.</p>
+map at a scale of 1:24,000 use 24000. Must be greater or equal to 0.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p><a class="reference internal" href="../glossary.html#term-Map-Scale"><span class="xref std std-term">Map Scale</span></a></p>
@@ -516,14 +516,14 @@ map at a scale of 1:24,000 use 24000.</p>
 </dd>
 </dl>
 <dl class="simple" id="mapfile-style-minsize">
-<dt>MINSIZE [double]</dt><dd><p>Minimum size in pixels to draw a symbol. Default is 0.  Starting
+<dt>MINSIZE [double]</dt><dd><p>Minimum size in pixels to draw a symbol. Default is 0. Must be greater or equal to 0. Starting
 from version 5.4, the value can also be a decimal value (and not
 only integer).
 See <a class="reference internal" href="layer.html#layer"><span class="std std-ref">LAYER</span></a> <a class="reference internal" href="layer.html#symbolscaledenom"><span class="std std-ref">SYMBOLSCALEDENOM</span></a>.</p>
 </dd>
 </dl>
 <dl class="simple" id="mapfile-style-minwidth">
-<dt>MINWIDTH [double]</dt><dd><p>Minimum width in pixels to draw the line work. Default is 0.
+<dt>MINWIDTH [double]</dt><dd><p>Minimum width in pixels to draw the line work. Default is 0. Must be greater or equal to 0.
 Starting from version 5.4, the value can also be a decimal value
 (and not only integer).
 See <a class="reference internal" href="layer.html#layer"><span class="std std-ref">LAYER</span></a> <a class="reference internal" href="layer.html#symbolscaledenom"><span class="std std-ref">SYMBOLSCALEDENOM</span></a>.</p>
@@ -610,7 +610,7 @@ object for might contain:</p>
 <dt>OUTLINEWIDTH [double|attribute]</dt><dd><div class="versionadded">
 <p><span class="versionmodified added">New in version 5.4.</span></p>
 </div>
-<p>Width in pixels for the outline.  Default is 0.0.  The thickness
+<p>Width in pixels for the outline.  Default is 0.0. Must be greater or equal to 0. The thickness
 of the outline will not depend on the scale.</p>
 </dd>
 </dl>
@@ -723,7 +723,7 @@ continuous linear gradient between the two values.</p>
 Default value depends on the <a class="reference internal" href="symbol.html#symbol"><span class="std std-ref">SYMBOL</span></a> <cite>TYPE</cite>.  For <cite>pixmap</cite>:
 the height (in pixels) of the pixmap; for <cite>ellipse</cite> and <cite>vector</cite>:
 the maximum y value of the <a class="reference internal" href="symbol.html#symbol"><span class="std std-ref">SYMBOL</span></a> <cite>POINTS</cite> parameter, for
-<cite>hatch</cite>: 1.0, for <cite>truetype</cite>: 1.0.</p>
+<cite>hatch</cite>: 1.0, for <cite>truetype</cite>: 1.0. In all cases the value must be greater than 0.</p>
 <p>When scaling of symbols is in effect (<cite>SYMBOLSCALEDENOM</cite> is
 specified for the <a class="reference internal" href="layer.html#layer"><span class="std std-ref">LAYER</span></a>), <cite>SIZE</cite> gives the height, in layer
 <cite>SIZEUNITS</cite>, of the symbol/pattern to be used at the map scale
@@ -759,7 +759,8 @@ value (and not only integer).</p></li>
 <dt>SYMBOL [integer|string|filename|url|attribute]</dt><dd><p>The symbol to use for rendering the features.</p>
 <ul>
 <li><p>Integer is the index of the symbol in the symbol set, starting
-at 1 (the 5th symbol is symbol number 5).</p></li>
+at 1 (the 5th symbol is symbol number 5). A value of 0 is the
+default symbol for the geometry type.</p></li>
 <li><p>String is the name of the symbol (as defined using the
 <a class="reference internal" href="symbol.html#symbol"><span class="std std-ref">SYMBOL</span></a> <cite>NAME</cite> parameter).</p></li>
 <li><p>Filename specifies the path to a file containing a symbol.  For
@@ -805,7 +806,7 @@ parameter.</p></li>
 </dl>
 <dl id="mapfile-style-width">
 <dt>WIDTH [double|attribute]</dt><dd><p><cite>WIDTH</cite> refers to the thickness of line work drawn, in layer
-<cite>SIZEUNITS</cite>.  Default is 1.0.</p>
+<cite>SIZEUNITS</cite>.  Default is 1.0. Must be greater or equal to 0.</p>
 <p>When scaling of symbols is in effect (<cite>SYMBOLSCALEDENOM</cite> is
 specified for the <a class="reference internal" href="layer.html#layer"><span class="std std-ref">LAYER</span></a>), <cite>WIDTH</cite> refers to the thickness
 of the line work in layer <cite>SIZEUNITS</cite> at the map scale
@@ -882,8 +883,8 @@ value (and not only integer).</p></li>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="../copyright.html">Copyright</a> 2022, Open Source Geospatial Foundation.
-      Last updated on 2022-01-29.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
+      Last updated on 2022-04-04.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
     </div>
   </body>
 </html>

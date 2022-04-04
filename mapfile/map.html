@@ -129,8 +129,8 @@ word <cite>END</cite>.</p>
 </div>
 <img alt="../_images/map_classes.png" class="no-scaled-link align-center" src="../_images/map_classes.png" style="width: 1024px; height: 234px;" />
 <dl class="simple" id="mapfile-map-angle">
-<dt>ANGLE [double]</dt><dd><p>Angle, given in degrees, to rotate the map. Default is 0. The
-rendered map will rotate in a clockwise direction. The following
+<dt>ANGLE [double]</dt><dd><p>Angle, given in degrees, to rotate the map. Default is 0, and must be in the range
+-360 to 360. The rendered map will rotate in a clockwise direction. The following
 are important notes:</p>
 <ul class="simple">
 <li><p>Requires a <a class="reference internal" href="projection.html#projection"><span class="std std-ref">PROJECTION</span></a> object specified at the MAP level
@@ -268,8 +268,8 @@ your PROJ_LIB directory. Here are some examples:</p>
 </dl>
 <p id="datapattern"><span id="mapfile-map-datapattern"></span>DATAPATTERN [regular expression]</p>
 <blockquote>
-<div><div class="deprecated">
-<p><span class="versionmodified deprecated">Deprecated since version 5.4: </span>See <a class="reference internal" href="validation.html#validation"><span class="std std-ref">VALIDATION</span></a> instead</p>
+<div><div class="versionremoved">
+<p><span class="versionmodified removed">Removed in version 8.0: </span>See <a class="reference internal" href="validation.html#validation"><span class="std std-ref">VALIDATION</span></a> instead</p>
 </div>
 <p>This defines a regular expression to be applied to requests to
 change <cite>DATA</cite> parameters via URL requests
@@ -339,7 +339,7 @@ option).</p>
 <p><span class="versionmodified added">New in version 5.6.</span></p>
 </div>
 <p>Sets the reference resolution (pixels per inch) used for
-symbology.  Default is 72.</p>
+symbology.  Default is 72. Minimum is 10 and maximum is 1000.</p>
 <p>Used to automatically scale the symbology when <a class="reference internal" href="#resolution-parameter"><span class="std std-ref">RESOLUTION</span></a> is changed, so the map maintains the same
 look at each resolution.  The scale factor is <cite>RESOLUTION</cite> /
 <cite>DEFRESOLUTION</cite>.</p>
@@ -426,7 +426,8 @@ should be interlaced.</p>
 default value. For example, setting this to 4096 means that you
 can have up to 4096 pixels in both dimensions (i.e. max of
 4096x4096).  Default is 4096 for MapServer version &gt;= 7.0.3
-(for earlier versions the default was 2048).</p>
+(for earlier versions the default was 2048).
+Must be a value greater than 0.</p>
 </dd>
 </dl>
 <dl class="simple" id="mapfile-map-name">
@@ -451,7 +452,7 @@ using this mapfile. It should be kept short.</p>
 </dd>
 </dl>
 <span id="mapfile-map-resolution"></span><dl class="simple" id="resolution-parameter">
-<dt>RESOLUTION [double] Sets the pixels per inch for output, only affects</dt><dd><p>scale computations.  Default is 72.</p>
+<dt>RESOLUTION [double] Sets the pixels per inch for output, only affects</dt><dd><p>scale computations.  Default is 72. Minimum is 10 and maximum is 1000.</p>
 </dd>
 </dl>
 <dl id="mapfile-map-scaledenom">
@@ -459,7 +460,7 @@ using this mapfile. It should be kept short.</p>
 Scale is given as the denominator of the actual scale fraction,
 for example for a map at a scale of 1:24,000 use 24000.
 Implemented in MapServer 5.0, to replace the deprecated <cite>SCALE</cite>
-parameter.</p>
+parameter. Must be greater or equal to 1.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p><a class="reference internal" href="../glossary.html#term-Map-Scale"><span class="xref std std-term">Map Scale</span></a></p>
@@ -476,7 +477,8 @@ be further subdirectories under <cite>SHAPEPATH</cite>.</p>
 </dd>
 </dl>
 <dl class="simple" id="mapfile-map-size">
-<dt>SIZE [x][y]</dt><dd><p>Size in pixels of the output image (i.e. the map).</p>
+<dt>SIZE [x][y]</dt><dd><p>Size in pixels of the output image (i.e. the map).
+Values must be less than the MAXSIZE property.</p>
 </dd>
 </dl>
 <dl class="simple" id="mapfile-map-status">
@@ -498,8 +500,8 @@ end with the word <cite>END</cite>.</p>
 </dl>
 <p id="templatepattern"><span id="mapfile-map-templatepattern"></span>TEMPLATEPATTERN [regular expression]</p>
 <blockquote>
-<div><div class="deprecated">
-<p><span class="versionmodified deprecated">Deprecated since version 5.4: </span>See <a class="reference internal" href="validation.html#validation"><span class="std std-ref">VALIDATION</span></a> instead</p>
+<div><div class="versionremoved">
+<p><span class="versionmodified removed">Removed in version 8.0: </span>See <a class="reference internal" href="validation.html#validation"><span class="std std-ref">VALIDATION</span></a> instead</p>
 </div>
 <p>This defines a regular expression to be applied to requests to
 change the <cite>TEMPLATE</cite> parameters via URL requests
@@ -580,8 +582,8 @@ computations.  <cite>Nauticalmiles</cite> was added in MapServer 5.6.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="../copyright.html">Copyright</a> 2022, Open Source Geospatial Foundation.
-      Last updated on 2022-01-29.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
+      Last updated on 2022-04-04.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
     </div>
   </body>
 </html>

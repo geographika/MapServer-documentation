@@ -184,7 +184,7 @@ at a smaller scale, MapServer automatically returns the map at this scale.
 This effectively prevents user from zooming too far out.  Scale is given as
 the denominator of the actual scale fraction, for example for a map at a
 scale of 1:24,000 use 24000.  Implemented in MapServer 5.0, to replace the
-deprecated MAXSCALE parameter.</p>
+deprecated MAXSCALE parameter. Must be greater or equal to 0.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p><a class="reference internal" href="../glossary.html#term-Map-Scale"><span class="xref std std-term">Map Scale</span></a></p>
@@ -295,7 +295,7 @@ map at a larger scale, MapServer automatically returns the map at this
 scale. This effectively prevents the user from zooming in too far.
 Scale is given as the denominator of the actual scale fraction, for example
 for a map at a scale of 1:24,000 use 24000.  Implemented in MapServer 5.0, to
-replace the deprecated MINSCALE parameter.</p>
+replace the deprecated MINSCALE parameter. Must be greater or equal to 0.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p><a class="reference internal" href="../glossary.html#term-Map-Scale"><span class="xref std std-term">Map Scale</span></a></p>
@@ -410,8 +410,8 @@ substitutions.  See <a class="reference internal" href="../cgi/runsub.html#runsu
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="../copyright.html">Copyright</a> 2022, Open Source Geospatial Foundation.
-      Last updated on 2022-01-29.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
+      Last updated on 2022-04-04.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
     </div>
   </body>
 </html>

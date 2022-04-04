@@ -142,34 +142,36 @@ with.</p>
 </dl>
 <dl class="simple" id="mapfile-grid-minarcs">
 <dt>MINARCS [double]</dt><dd><p>The minimum number of arcs to draw. Increase this parameter to get
-more lines. Optional.</p>
+more lines. Optional.  Must be greater than 0.</p>
 </dd>
 </dl>
 <dl class="simple" id="mapfile-grid-maxarcs">
 <dt>MAXARCS [double]</dt><dd><p>The maximum number of arcs to draw.   Decrease this parameter to
-get fewer lines.  Optional.</p>
+get fewer lines.  Optional. Must be greater than 0.</p>
 </dd>
 </dl>
 <dl class="simple" id="mapfile-grid-mininterval">
 <dt>MININTERVAL [double]</dt><dd><p>The minimum number of intervals to try to use. The distance between
-the grid lines, in the units of the grid’s coordinate system.  Optional.</p>
+the grid lines, in the units of the grid’s coordinate system.  Optional.
+Must be greater than 0.</p>
 </dd>
 </dl>
 <dl class="simple" id="mapfile-grid-maxinterval">
 <dt>MAXINTERVAL [double]</dt><dd><p>The maximum number of intervals to try to use.  The distance between
-the grid lines, in the units of the grid’s coordinate system.  Optional.</p>
+the grid lines, in the units of the grid’s coordinate system.  Optional.
+Must be greater than 0.</p>
 </dd>
 </dl>
 <dl class="simple" id="mapfile-grid-minsubdivide">
 <dt>MINSUBDIVIDE [double]</dt><dd><p>The minimum number of segments to use when rendering an arc.  If the
 lines should be very curved, use this to smooth the lines by adding more
-segments.  Optional.</p>
+segments.  Optional. Must be greater than 0.</p>
 </dd>
 </dl>
 <dl class="simple" id="mapfile-grid-maxsubdivide">
 <dt>MAXSUBDIVIDE [double]</dt><dd><p>The maximum number of segments to use when rendering an arc. If the
 graticule should be very straight, use this to minimize the number of
-points for faster rendering.  Optional, default 256.</p>
+points for faster rendering.  Optional, default 256. Must be greater than 0.</p>
 </dd>
 </dl>
 </section>
@@ -348,8 +350,8 @@ meter (MININTERVAL 1).</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="../copyright.html">Copyright</a> 2022, Open Source Geospatial Foundation.
-      Last updated on 2022-01-29.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
+      Last updated on 2022-04-04.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
     </div>
   </body>
 </html>

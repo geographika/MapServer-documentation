@@ -138,7 +138,7 @@
 <dt>DEBUG [on|off]</dt><dd><p>Enables debugging of the class object. Verbose output is generated
 and sent to the standard error output (STDERR) or the MapServer
 logfile if one is set using the <cite>LOG</cite> parameter in the <a class="reference internal" href="web.html#web"><span class="std std-ref">WEB</span></a>
-object.</p>
+object. Must be an integer in the range 0 to 5.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p><a class="reference internal" href="../optimization/debugging.html#debugging"><span class="std std-ref">Debugging MapServer</span></a></p>
@@ -252,7 +252,7 @@ a <a class="reference internal" href="label.html#label"><span class="std std-ref
 <dt>MAXSCALEDENOM [double]</dt><dd><p>Minimum scale at which this <a class="reference internal" href="#class"><span class="std std-ref">CLASS</span></a> is drawn. Scale is given
 as the denominator of the actual scale fraction, for example for a
 map at a scale of 1:24,000 use 24000. Implemented in MapServer
-5.0, to replace the deprecated <cite>MAXSCALE</cite> parameter.</p>
+5.0, to replace the deprecated <cite>MAXSCALE</cite> parameter. Must be greater or equal to 0.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p><a class="reference internal" href="../glossary.html#term-Map-Scale"><span class="xref std std-term">Map Scale</span></a></p>
@@ -273,7 +273,7 @@ map at a scale of 1:24,000 use 24000. Implemented in MapServer
 <dt>MINSCALEDENOM [double]</dt><dd><p>Maximum scale at which this <a class="reference internal" href="#class"><span class="std std-ref">CLASS</span></a> is drawn.  Scale is given
 as the denominator of the actual scale fraction, for example for a
 map at a scale of 1:24,000 use 24000.  Implemented in MapServer
-5.0, to replace the deprecated <cite>MINSCALE</cite> parameter.</p>
+5.0, to replace the deprecated <cite>MINSCALE</cite> parameter. Must be greater or equal to 0.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p><a class="reference internal" href="../glossary.html#term-Map-Scale"><span class="xref std std-term">Map Scale</span></a></p>
@@ -281,7 +281,8 @@ map at a scale of 1:24,000 use 24000.  Implemented in MapServer
 </dd>
 </dl>
 <dl class="simple" id="mapfile-class-minfeaturesize">
-<dt>MINFEATURESIZE [integer]</dt><dd><p>Minimum feature size (in pixels) at which a feature should be rendered.</p>
+<dt>MINFEATURESIZE [integer]</dt><dd><p>Minimum feature size (in pixels) at which a feature should be rendered.
+Must be greater than 0.</p>
 </dd>
 </dl>
 <p id="mapfile-class-minsize">MINSIZE [integer]</p>
@@ -425,8 +426,8 @@ substitutions.  See <a class="reference internal" href="../cgi/runsub.html#runsu
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="../copyright.html">Copyright</a> 2022, Open Source Geospatial Foundation.
-      Last updated on 2022-01-29.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
+      Last updated on 2022-04-04.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
     </div>
   </body>
 </html>

@@ -561,7 +561,7 @@ etc… are only available when the label cache is active.</p>
 <dt>LABELMAXSCALEDENOM [double]</dt><dd><p>Minimum scale at which this LAYER is labeled.  Scale is given as the
 denominator of the actual scale fraction, for example for a map at a scale
 of 1:24,000 use 24000.  Implemented in MapServer 5.0, to replace the
-deprecated LABELMAXSCALE parameter.</p>
+deprecated LABELMAXSCALE parameter. Must be greater or equal to 0.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p><a class="reference internal" href="../glossary.html#term-Map-Scale"><span class="xref std std-term">Map Scale</span></a></p>
@@ -572,7 +572,7 @@ deprecated LABELMAXSCALE parameter.</p>
 <dt>LABELMINSCALEDENOM [double]</dt><dd><p>Maximum scale at which this LAYER is labeled.  Scale is given as the
 denominator of the actual scale fraction, for example for a map at a scale
 of 1:24,000 use 24000.  Implemented in MapServer 5.0, to replace the
-deprecated LABELMINSCALE parameter.</p>
+deprecated LABELMINSCALE parameter. Must be greater or equal to 0.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p><a class="reference internal" href="../glossary.html#term-Map-Scale"><span class="xref std std-term">Map Scale</span></a></p>
@@ -619,7 +619,7 @@ generated map, [layername] should usually be set to <a class="reference internal
 <dl class="simple" id="mapfile-layer-maxfeatures">
 <dt>MAXFEATURES [integer]</dt><dd><p>Specifies the number of features that should be drawn for this layer in
 the CURRENT window. Has some interesting uses with annotation and with
-sorted data (i.e. lakes by area).</p>
+sorted data (i.e. lakes by area). Must be greater than 0.</p>
 </dd>
 </dl>
 <dl id="mapfile-layer-maxgeowidth">
@@ -628,7 +628,7 @@ sorted data (i.e. lakes by area).</p>
 </div>
 <p>Maximum width, in the map’s geographic units, at which this LAYER
 is drawn.  If MAXSCALEDENOM is also specified then MAXSCALEDENOM
-will be used instead.</p>
+will be used instead. Must be greater than 0.</p>
 <p>The width of a map in geographic units can be found by calculating the
 following from the extents:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">maxx</span><span class="p">]</span> <span class="o">-</span> <span class="p">[</span><span class="n">minx</span><span class="p">]</span>
@@ -642,7 +642,7 @@ following from the extents:</p>
 </div>
 <p>Minimum scale at which this LAYER is drawn.  Scale is given as the
 denominator of the actual scale fraction, for example for a map at a scale
-of 1:24,000 use 24000.</p>
+of 1:24,000 use 24000. Must be greater or equal to 0.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p><a class="reference internal" href="../glossary.html#term-Map-Scale"><span class="xref std std-term">Map Scale</span></a></p>
@@ -663,13 +663,18 @@ anything you put in here will be accessible via template tags.</p>
 </div>
 </dd>
 </dl>
+<dl class="simple" id="mapfile-layer-minfeaturesize">
+<dt>MINFEATURESIZE [integer]</dt><dd><p>Minimum feature size (in pixels) for shapes in the layer.
+Must be greater than 0.</p>
+</dd>
+</dl>
 <dl id="mapfile-layer-mingeowidth">
 <dt>MINGEOWIDTH [double]</dt><dd><div class="versionadded">
 <p><span class="versionmodified added">New in version 5.4.0.</span></p>
 </div>
 <p>Minimum width, in the map’s geographic units, at which this LAYER
 is drawn.  If MINSCALEDENOM is also specified then MINSCALEDENOM
-will be used instead.</p>
+will be used instead. Must be greater than 0.</p>
 <p>The width of a map in geographic units can be found by calculating the
 following from the extents:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">maxx</span><span class="p">]</span> <span class="o">-</span> <span class="p">[</span><span class="n">minx</span><span class="p">]</span>
@@ -681,7 +686,7 @@ following from the extents:</p>
 <dt>MINSCALEDENOM [double]</dt><dd><p>Maximum scale at which this LAYER is drawn.  Scale is given as the
 denominator of the actual scale fraction, for example for a map at a scale
 of 1:24,000 use 24000.  Implemented in MapServer 5.0, to replace the
-deprecated MINSCALE parameter.</p>
+deprecated MINSCALE parameter. Must be greater or equal to 0.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p><a class="reference internal" href="../glossary.html#term-Map-Scale"><span class="xref std std-term">Map Scale</span></a></p>
@@ -1270,7 +1275,7 @@ size. Scaling only takes place within the limits of MINSIZE and
 MAXSIZE as described above.  Scale is given as the denominator of
 the actual scale fraction, for example for a map at a scale of
 1:24,000 use 24000.  Implemented in MapServer 5.0, to replace the
-deprecated SYMBOLSCALE parameter.</p>
+deprecated SYMBOLSCALE parameter. Must be greater or equal to 1.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p><a class="reference internal" href="../glossary.html#term-Map-Scale"><span class="xref std std-term">Map Scale</span></a></p>
@@ -1509,8 +1514,8 @@ substitutions.  See <a class="reference internal" href="../cgi/runsub.html#runsu
     </div>
     <div class="footer" role="contentinfo">
         &#169; <a href="../copyright.html">Copyright</a> 2022, Open Source Geospatial Foundation.
-      Last updated on 2022-01-29.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
+      Last updated on 2022-04-04.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
     </div>
   </body>
 </html>
