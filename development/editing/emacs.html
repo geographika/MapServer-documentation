@@ -1,22 +1,26 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Emacs Syntax &#8212; MapServer 7.6.4 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/ribbon.css" />
+    <title>Emacs Syntax &#8212; MapServer 8.2.2 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx.css?v=6c7b17ac" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=dd298242" />
+    <link rel="stylesheet" type="text/css" href="../../_static/ribbon.css?v=ea091bf4" />
     
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../../_static/documentation_options.js?v=8649718b"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
     
-    <link rel="shortcut icon" href="../../_static/mapserver.ico"/>
+    <link rel="icon" href="../../_static/mapserver.ico"/>
     <link rel="author" title="About these documents" href="../../about.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -27,7 +31,6 @@
 
 
 <!-- for main branch only, do not backport this -->
-<h4 class="ribbon">DOCS PREVIEW</h4>
 
 <table width="100%" style="width: 100%; background-color: white;">
   <tr>
@@ -50,52 +53,13 @@
   <tr>
     <td style="padding: 0px 10px 0px 0px; text-align: right; vertical-align: bottom;">
         <img src="../../_static/flagicons/en.png" alt="en" title="en" border="0" width="18px" height="13px"/>
-        
-          <a href="../../ar/development/editing/emacs.html"><img src="../../_static/flagicons/ar.png" alt="ar" title="ar" border="0" /></a>
-        
-        
-          <a href="../../de/development/editing/emacs.html"><img src="../../_static/flagicons/de.png" alt="de" title="de" border="0" /></a>
-        
-        
-          <a href="../../el/development/editing/emacs.html"><img src="../../_static/flagicons/el.png" alt="el" title="el" border="0" /></a>
-        
-        
-          <a href="../../es/development/editing/emacs.html"><img src="../../_static/flagicons/es.png" alt="es" title="es" border="0" /></a>
-        
-        
-          <a href="../../fr/development/editing/emacs.html"><img src="../../_static/flagicons/fr.png" alt="fr" title="fr" border="0" /></a>
-        
-        
-          <a href="../../id/development/editing/emacs.html"><img src="../../_static/flagicons/id.png" alt="id" title="id" border="0" /></a>
-        
-        
-          <a href="../../it/development/editing/emacs.html"><img src="../../_static/flagicons/it.png" alt="it" title="it" border="0" /></a>
-        
-        
-          <a href="../../ja/development/editing/emacs.html"><img src="../../_static/flagicons/ja.png" alt="ja" title="ja" border="0" /></a>
-        
-        
-          <a href="../../nl_NL/development/editing/emacs.html"><img src="../../_static/flagicons/nl_NL.png" alt="nl_NL" title="nl_NL" border="0" /></a>
-        
-        
-          <a href="../../pl/development/editing/emacs.html"><img src="../../_static/flagicons/pl.png" alt="pl" title="pl" border="0" /></a>
-        
-        
-          <a href="../../ru/development/editing/emacs.html"><img src="../../_static/flagicons/ru.png" alt="ru" title="ru" border="0" /></a>
-        
-        
-          <a href="../../sq/development/editing/emacs.html"><img src="../../_static/flagicons/sq.png" alt="sq" title="sq" border="0" /></a>
-        
-        
-          <a href="../../tr/development/editing/emacs.html"><img src="../../_static/flagicons/tr.png" alt="tr" title="tr" border="0" /></a>
-        
 
     </td>
   </tr>
 </table>
 
 
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -121,8 +85,8 @@
           <div class="body" role="main">
             
   <section id="emacs-syntax">
-<span id="emacs"></span><h1><a class="toc-backref" href="#table-of-contents">Emacs Syntax</a><a class="headerlink" href="#emacs-syntax" title="Permalink to this headline">¶</a></h1>
-<div class="contents topic" id="table-of-contents">
+<span id="emacs"></span><h1><a class="toc-backref" href="#table-of-contents" role="doc-backlink">Emacs Syntax</a><a class="headerlink" href="#emacs-syntax" title="Link to this heading">¶</a></h1>
+<nav class="contents" id="table-of-contents">
 <p class="topic-title">Table of Contents</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#emacs-syntax" id="id1">Emacs Syntax</a></p>
@@ -133,9 +97,9 @@
 </ul>
 </li>
 </ul>
-</div>
+</nav>
 <section id="mapserver-mode-for-emacs">
-<h2><a class="toc-backref" href="#table-of-contents">mapserver-mode for Emacs</a><a class="headerlink" href="#mapserver-mode-for-emacs" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#table-of-contents" role="doc-backlink">mapserver-mode for Emacs</a><a class="headerlink" href="#mapserver-mode-for-emacs" title="Link to this heading">¶</a></h2>
 <p>There is a mapserver-mode for Emacs available at:
 <a class="reference external" href="https://github.com/AxxL/mapserver-emacs-mode">https://github.com/AxxL/mapserver-emacs-mode</a> This mode allows
 syntax-highlighting and code-indentation when a MapServer mapfile is opened
@@ -144,7 +108,7 @@ in Emacs.</p>
 list. There are still some issues around.</p>
 </section>
 <section id="installation">
-<h2><a class="toc-backref" href="#table-of-contents">Installation</a><a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#table-of-contents" role="doc-backlink">Installation</a><a class="headerlink" href="#installation" title="Link to this heading">¶</a></h2>
 <p>You can grab the necessary file at:
 <a class="reference external" href="https://github.com/AxxL/mapserver-emacs-mode/blob/master/mapserver-mode.el">https://github.com/AxxL/mapserver-emacs-mode/blob/master/mapserver-mode.el</a></p>
 <p>Put it into: $HOME/.emacs.d/lisp/</p>
@@ -157,9 +121,9 @@ the following line before the other two lines.</p>
 <p>Some help for Emacs is available at the <a class="reference external" href="http://www.emacswiki.org/">Emacs Wiki</a></p>
 </section>
 <section id="background">
-<h2><a class="toc-backref" href="#table-of-contents">Background</a><a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#table-of-contents" role="doc-backlink">Background</a><a class="headerlink" href="#background" title="Link to this heading">¶</a></h2>
 <p>This file is a fork of Hal Muellers mapserver-mode which he announced nearly
-<a class="reference external" href="http://lists.osgeo.org/pipermail/mapserver-users/2004-May/051493.html">10 years ago at the mapserver-users list</a>. I
+<a class="reference external" href="https://lists.osgeo.org/pipermail/mapserver-users/2004-May/051493.html">10 years ago at the mapserver-users list</a>. I
 simply updated the keywords and constants to the newest version and adjusted
 the regular expressions a bit.</p>
 <p>The original file seems to be based on the <a class="reference external" href="http://www.emacswiki.org/emacs/ModeTutorial">Mode Tutorial by Scott Andrew
@@ -176,9 +140,9 @@ way to edit mapfiles in your beloved Emacs environment.</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
@@ -186,8 +150,8 @@ way to edit mapfiles in your beloved Emacs environment.</p>
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
-<script>$('#searchbox').show(0);</script><h3>Navigation</h3>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
 <p>
 <a href="../../about.html" title="About">About</a><br>
 <a href="../../products.html" title="Products">Products</a><br>
@@ -213,7 +177,7 @@ way to edit mapfiles in your beloved Emacs environment.</p>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -232,9 +196,9 @@ way to edit mapfiles in your beloved Emacs environment.</p>
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; <a href="../../copyright.html">Copyright</a> 2022, Open Source Geospatial Foundation.
-      Last updated on 2022-04-04.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+    &#169; <a href="../../copyright.html">Copyright</a> 2024, Open Source Geospatial Foundation.
+      Last updated on 2024-11-01.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.0.2.
     </div>
   </body>
 </html>

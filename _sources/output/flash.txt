@@ -7,8 +7,7 @@
 :Author:        Jeff McKenna
 :Contact:       jmckenna at gatewaygeomatics.com
 :Author:        Yewondwossen Assefa
-:Contact:       assefa at dmsolutions.ca
-:Last Updated: 2008-07-15
+:Last Updated:  2008-07-15
 
 .. contents:: Table of Contents
     :depth: 2
@@ -214,7 +213,7 @@ SWFDUMPATTRIBUTES in the layer section of the mapfile. Here is an example :
   END
   TYPE POLYGON
   STATUS ON
-  DATA park
+  DATA park.shp
   ...
 
 In the above example, the values for the attributes NAME_E and AREA_KMSQ will be exported

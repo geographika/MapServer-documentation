@@ -11,7 +11,7 @@
 :Contact: jmckenna at gatewaygeomatics.com
 :Author: Even Rouault
 :Contact: even.rouault at mines-paris.org
-:Last Updated: 2021-03-27
+:Last Updated: 2024-07-08
 
 .. contents::
     :depth: 2
@@ -168,7 +168,7 @@ the comments for the required parameters.
 .. code-block:: mapfile
 
       MAP
-        NAME "WFS_server"
+        NAME "WFS_server" ##strongly recommended. containing no special characters or spaces
         STATUS ON
         SIZE 400 300
         SYMBOLSET "../etc/symbols.txt"
@@ -212,16 +212,19 @@ the comments for the required parameters.
             "wfs_srs"           "EPSG:4326" ## REQUIRED
             "gml_include_items" "all" ## Optional (serves all attributes for layer)
             "gml_featureid"     "ID" ## REQUIRED
+            "gml_types"         "auto" ## Optional (automatically populate the type for the attributes)
             "wfs_enable_request" "*"
+            "wfs_use_default_extent_for_getfeature" "false" ## Optional (improves performance of OGR layers)
           END  
           TYPE POLYGON
           STATUS ON
-          DATA 'shapefile/countries_area'
+          DATA "shapefile/countries_area"
+          # define source projection
           PROJECTION
             "init=epsg:4326"
           END
           CLASS
-            NAME 'World Continents'
+            NAME "World Continents"
             STYLE
               COLOR 255 128 128
               OUTLINECOLOR 96 96 96      
@@ -1305,6 +1308,8 @@ Layer Object
 
 **wfs_metadataurl_list**
 
+  .. versionadded:: 8.0
+
 - (Optional) Space-separated list of parts of metadata keys,
   to be able to specify several MetadataURL. If the value of wfs_metadataurl_list
   is "foo bar", then wfs_metadataurl_foo_href, wfs_metadataurl_foo_format,
@@ -1330,8 +1335,6 @@ Layer Object
         "wfs_metadataurl_html_type" "TC211"
         "wfs_metadataurl_html_href" "http://example.com/testHTML"
         "wfs_metadataurl_html_about" "about HTML"
-
-- .. versionadded:: 8.0
 
 .. index:: 
    triple: WFS; METADATA; wfs_metadataurl_type

@@ -12,6 +12,12 @@
     :depth: 2
     :backlinks: top
     
+.. warning::
+
+   As of the MapServer 8.0.0 release PHP support is only available through
+   MapServer's :ref:`SWIG API <swig>`.  The unmaintained `native` PHP MapScript
+   support was removed.   
+    
 .. note::
 
    As of the 7.4.0 release PHP 7 is available through
@@ -187,7 +193,7 @@ Here's the map file:
             NAME "Europe"
             TYPE POLYGON
             STATUS ON
-            DATA "europe"
+            DATA "europe.shp"
             CLASS
                 STYLE
                     COLOR 110 50 100
@@ -588,8 +594,8 @@ built on PHPMapScript). Goodbye, and thanks for reading this far.
 .. _`HTML`: http://www.w3.org/MarkUp/
 .. _`shapefile`: http://shapelib.maptools.org/
 .. _`PostGIS`: http://postgis.net/
-.. _`list archives`: http://lists.osgeo.org/pipermail/mapserver-users/
-.. _`mapserver-dev list`: http://lists.osgeo.org/mailman/listinfo/mapserver-dev/ 
+.. _`list archives`: https://lists.osgeo.org/pipermail/mapserver-users/
+.. _`mapserver-dev list`: https://lists.osgeo.org/mailman/listinfo/mapserver-dev/ 
 .. _`here`: http://dl.maptools.org/dl/
 .. _`MS4W packaged application`: http://www.ms4w.com/download.html
 .. _`MapTools site`: http://www.maptools.org/

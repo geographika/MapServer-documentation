@@ -1,22 +1,26 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>MS RFC 26: Version 5 Terminology Cleanup &#8212; MapServer 7.6.4 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/ribbon.css" />
+    <title>MS RFC 26: Version 5 Terminology Cleanup &#8212; MapServer 8.2.2 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx.css?v=6c7b17ac" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=dd298242" />
+    <link rel="stylesheet" type="text/css" href="../../_static/ribbon.css?v=ea091bf4" />
     
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../../_static/documentation_options.js?v=8649718b"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
     
-    <link rel="shortcut icon" href="../../_static/mapserver.ico"/>
+    <link rel="icon" href="../../_static/mapserver.ico"/>
     <link rel="author" title="About these documents" href="../../about.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -27,7 +31,6 @@
 
 
 <!-- for main branch only, do not backport this -->
-<h4 class="ribbon">DOCS PREVIEW</h4>
 
 <table width="100%" style="width: 100%; background-color: white;">
   <tr>
@@ -50,52 +53,13 @@
   <tr>
     <td style="padding: 0px 10px 0px 0px; text-align: right; vertical-align: bottom;">
         <img src="../../_static/flagicons/en.png" alt="en" title="en" border="0" width="18px" height="13px"/>
-        
-          <a href="../../ar/development/rfc/ms-rfc-26.html"><img src="../../_static/flagicons/ar.png" alt="ar" title="ar" border="0" /></a>
-        
-        
-          <a href="../../de/development/rfc/ms-rfc-26.html"><img src="../../_static/flagicons/de.png" alt="de" title="de" border="0" /></a>
-        
-        
-          <a href="../../el/development/rfc/ms-rfc-26.html"><img src="../../_static/flagicons/el.png" alt="el" title="el" border="0" /></a>
-        
-        
-          <a href="../../es/development/rfc/ms-rfc-26.html"><img src="../../_static/flagicons/es.png" alt="es" title="es" border="0" /></a>
-        
-        
-          <a href="../../fr/development/rfc/ms-rfc-26.html"><img src="../../_static/flagicons/fr.png" alt="fr" title="fr" border="0" /></a>
-        
-        
-          <a href="../../id/development/rfc/ms-rfc-26.html"><img src="../../_static/flagicons/id.png" alt="id" title="id" border="0" /></a>
-        
-        
-          <a href="../../it/development/rfc/ms-rfc-26.html"><img src="../../_static/flagicons/it.png" alt="it" title="it" border="0" /></a>
-        
-        
-          <a href="../../ja/development/rfc/ms-rfc-26.html"><img src="../../_static/flagicons/ja.png" alt="ja" title="ja" border="0" /></a>
-        
-        
-          <a href="../../nl_NL/development/rfc/ms-rfc-26.html"><img src="../../_static/flagicons/nl_NL.png" alt="nl_NL" title="nl_NL" border="0" /></a>
-        
-        
-          <a href="../../pl/development/rfc/ms-rfc-26.html"><img src="../../_static/flagicons/pl.png" alt="pl" title="pl" border="0" /></a>
-        
-        
-          <a href="../../ru/development/rfc/ms-rfc-26.html"><img src="../../_static/flagicons/ru.png" alt="ru" title="ru" border="0" /></a>
-        
-        
-          <a href="../../sq/development/rfc/ms-rfc-26.html"><img src="../../_static/flagicons/sq.png" alt="sq" title="sq" border="0" /></a>
-        
-        
-          <a href="../../tr/development/rfc/ms-rfc-26.html"><img src="../../_static/flagicons/tr.png" alt="tr" title="tr" border="0" /></a>
-        
 
     </td>
   </tr>
 </table>
 
 
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -121,22 +85,22 @@
           <div class="body" role="main">
             
   <section id="ms-rfc-26-version-5-terminology-cleanup">
-<span id="rfc26"></span><h1>MS RFC 26: Version 5 Terminology Cleanup<a class="headerlink" href="#ms-rfc-26-version-5-terminology-cleanup" title="Permalink to this headline">¶</a></h1>
+<span id="rfc26"></span><h1>MS RFC 26: Version 5 Terminology Cleanup<a class="headerlink" href="#ms-rfc-26-version-5-terminology-cleanup" title="Link to this heading">¶</a></h1>
 <dl class="field-list simple">
-<dt class="field-odd">Date</dt>
-<dd class="field-odd"><p>2007/04/21</p>
+<dt class="field-odd">Author<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Steve Lime, Havard Tveite</p>
 </dd>
-<dt class="field-even">Author</dt>
-<dd class="field-even"><p>Steve Lime, Havard Tveite</p>
+<dt class="field-even">Contact<span class="colon">:</span></dt>
+<dd class="field-even"><p>steve.lime at dnr.state.mn.us</p>
 </dd>
-<dt class="field-odd">Contact</dt>
-<dd class="field-odd"><p>steve.lime at dnr.state.mn.us, havard.tveite at nmbu.no</p>
+<dt class="field-odd">Status<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Implemented</p>
 </dd>
-<dt class="field-even">Status</dt>
-<dd class="field-even"><p>Implemented</p>
+<dt class="field-even">Version<span class="colon">:</span></dt>
+<dd class="field-even"><p>MapServer 5.0</p>
 </dd>
-<dt class="field-odd">Version</dt>
-<dd class="field-odd"><p>MapServer 5.0</p>
+<dt class="field-odd">Date<span class="colon">:</span></dt>
+<dd class="field-odd"><p>2007-04-21</p>
 </dd>
 </dl>
 <p>MapServer  terminology is mostly good and consistent, with a few exceptions.
@@ -147,7 +111,7 @@ instead. This would be simply to avoid confusion with the classObj STYLE.</p>
 <p>The The purpose of this proposal is to make MapServer  even easier to use,
 removing confusion that can arise in cases of inconsistent terminology.</p>
 <section id="transparency">
-<h2>TRANSPARENCY<a class="headerlink" href="#transparency" title="Permalink to this headline">¶</a></h2>
+<h2>TRANSPARENCY<a class="headerlink" href="#transparency" title="Link to this heading">¶</a></h2>
 <ol class="arabic simple">
 <li><p>Overview</p></li>
 </ol>
@@ -185,7 +149,7 @@ updated (simple search-replace with a manual check of all occurrences
 of the word transparency?)</p>
 </section>
 <section id="scale">
-<h2>SCALE<a class="headerlink" href="#scale" title="Permalink to this headline">¶</a></h2>
+<h2>SCALE<a class="headerlink" href="#scale" title="Link to this heading">¶</a></h2>
 <ol class="arabic simple">
 <li><p>Overview</p></li>
 </ol>
@@ -255,7 +219,7 @@ changed to reflect the new names. The old style keywords could be included,
 but should marked as deprecated.</p>
 </section>
 <section id="pattern">
-<h2>PATTERN<a class="headerlink" href="#pattern" title="Permalink to this headline">¶</a></h2>
+<h2>PATTERN<a class="headerlink" href="#pattern" title="Link to this heading">¶</a></h2>
 <ol class="arabic simple">
 <li><p>Overview</p></li>
 </ol>
@@ -303,9 +267,9 @@ change.</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
@@ -313,8 +277,8 @@ change.</p>
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
-<script>$('#searchbox').show(0);</script><h3>Navigation</h3>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
 <p>
 <a href="../../about.html" title="About">About</a><br>
 <a href="../../products.html" title="Products">Products</a><br>
@@ -340,7 +304,7 @@ change.</p>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -359,9 +323,9 @@ change.</p>
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; <a href="../../copyright.html">Copyright</a> 2022, Open Source Geospatial Foundation.
-      Last updated on 2022-04-04.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+    &#169; <a href="../../copyright.html">Copyright</a> 2024, Open Source Geospatial Foundation.
+      Last updated on 2024-11-01.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.0.2.
     </div>
   </body>
 </html>

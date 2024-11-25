@@ -6,13 +6,151 @@
 MapServer Migration Guide
 *****************************************************************************
 
-:Last Updated: 2021-07-13
+:Last Updated: 2024-08-26
 
 .. contents:: Table of Contents
     :depth: 2
     :backlinks: top
     
-.. _migration-7.6:
+.. _migration-8-2:
+   
+MapServer 8.0 to 8.2 Migration
+==============================
+
+- The 8.2 release includes a fix for a security flaw for regex validation 
+  (CVE has been requested)
+  
+- The GitHub `repository <https://github.com/MapServer/MapServer/>`__ has been 
+  restructured to move all source code into the */src* folder
+  
+- The unused `sym2img` commandline utility has been removed
+
+- support for GDAL < 3 has been removed 
+
+- support for PROJ < 6 has been removed
+
+.. _migration-8-0:
+   
+MapServer 7.6 to 8.0 Migration
+==============================
+    
+- The former `shp2img` commandline utility has been renamed to :ref:`map2img`
+
+- Every MapServer installation as of the 8.0.0 release will require a 
+  :ref:`config` file.
+
+  .. TIP::
+     For example, compiling from source on Ubuntu, by default MapServer will install 
+     a sample config file at */usr/local/etc/mapserver-sample.conf*, and you must 
+     rename that file to *mapserver.conf*.
+
+  .. TIP::  
+     For MS4W users (version >= 5), the config 
+     file can be found at */ms4w/ms4w.conf*
+
+- Old native PHP MapScript has been removed, in place of PHPNG (SWIG) MapScript.
+  Follow the MapScript :ref:`SWIG API <swig>` documentation.  Compiling SWIG `master` 
+  from `GitHub <https://github.com/swig/swig>`_ is recommended.
+
+  .. TIP::  
+     The MS4W community has produced many code examples of PHPNG (SWIG) MapScript:
+     https://ms4w.com/trac/wiki/MigrationGuide5.x
+
+- To follow the WMS specification, the `STYLES` parameter will now be required for 
+  GetMap requests.	To bypass this requirement, you can set `wms_allow_getmap_without_styles`
+  in your :ref:`WMS Server <wms_server>` mapfile, such as:
+  
+  .. code-block:: mapfile
+  
+      MAP
+        ...
+        WEB
+          METADATA
+            "wms_title" "My WMS Server"
+            ...
+            "wms_allow_getmap_without_styles" "true"
+          END #metadata
+        END #web
+        ...
+      END #map
+  
+  
+
+- Several deprecated mapfile parameters have been removed, and will throw an
+  error if you still specify them now.  The following are specific examples 
+  to be aware of (but be sure to review the :ref:`full list <rfc133>`), taken from the 
+  MS4W `migration guide <https://ms4w.com/trac/wiki/MigrationGuide5.x>`_:
+
+  - **DUMP TRUE**
+
+    Instead, you can configure querying of your layer by using METADATA instead, such as:
+
+    .. code-block:: mapfile
+    
+        LAYER
+          ...
+          METADATA
+            "wms_title"         "Populated Places"
+            "wms_include_items" "all"
+            "gml_include_items" "all"
+            "gml_featureid"     "ogc_fid"	
+          END #metadata
+          ...
+        END #layer
+
+  - **OPACITY** at the **LAYER-level** 
+
+    Instead it must be inside a :ref:`COMPOSITE` object:
+    
+    .. code-block:: mapfile
+
+        LAYER
+          ...
+          COMPOSITE
+            OPACITY 40
+          END #composite
+        END #layer
+
+  - **COLOR** at the **CLASS-level** 
+
+    Instead it must be inside the class' :ref:`STYLE` object:
+    
+    .. code-block:: mapfile
+
+        LAYER
+          ...
+          CLASS
+            ...
+            STYLE
+              COLOR 120 120 120
+            END #style
+          END #class
+        END #layer
+        
+- Direct changing of mapfile parameters through the URL has been removed  
+  as of the 8.0.0 release. You can still however handle this through 
+  :ref:`runsub`, but with a more limited list of supported mapfile 
+  parameters (see related `discussion <https://lists.osgeo.org/pipermail/mapserver-users/2022-October/082795.html>`__).  
+  Here is an example CGI request pre-8.0 release:
+  
+  ::
+
+    ...&map.layer[county].class[0].label[0]=SIZE+24&...  
+        
+- Reminder: every mapfile :ref:`LAYER` should include a **NAME** parameter. 
+  The NAME should **not contain** special characters, or spaces, or begin with 
+  a number.  This simple name is important for your downstream users (such as 
+  through OGC services).
+  
+  .. code-block:: mapfile
+
+      LAYER
+        NAME "mylayer" #strongly recommended
+        GROUP "mygroup"
+        ...
+      END #layer
+    
+.. _migration-7-6:
    
 MapServer 7.4 to 7.6 Migration
 ==============================
@@ -189,13 +327,13 @@ MapServer 6.4 to 7.0 Migration
 
 - MapServer attribute queries (e.g. mode=item[n]query) *must* be specified using MapServer 
   expression syntax (qstring and qitem (opt)). For RDBMS backends you no longer send SQL snippets, 
-  rather the underlying driver will attempt to translate the expression to native systax (e.g. SQL). 
+  rather the underlying driver will attempt to translate the expression to native syntax (e.g. SQL). 
   If translation fails (or the driver doesn't support translation) then MapServer will evaluate
   the expression instead.
 
 - Layer opacity is now deprecated a result of RFC 113 - Layer Compositing. The mapfile parser
   and MapScript getter/setter functions will continue to function but unpredictable results will 
-  occur if used in conjunction with COMPOSITE blocks. For more information see http://www.mapserver.org/development/rfc/ms-rfc-113.html.
+  occur if used in conjunction with COMPOSITE blocks. For more information see https://mapserver.org/development/rfc/ms-rfc-113.html.
 
 ::
 
@@ -223,14 +361,14 @@ MapServer 6.4 to 7.0 Migration
   OGR remains an alternative for those that really need it although the OGR/SDE driver suffers from the 
   same issues that prompted the removal from MapServer.
 
-- GD graphics library support was removed (http://www.mapserver.org/development/rfc/ms-rfc-99.html) and  
+- GD graphics library support was removed (https://mapserver.org/development/rfc/ms-rfc-99.html) and  
   had been optional since 6.2. 
 
     - GIF output cannot be produced from MapServer although 8-bit PNG output can be be produced using the AGG/PNG8 driver.  
 
-    - Bitmap fonts have been replaced with an embedded TrueType font (see http://www.mapserver.org/development/rfc/ms-rfc-104.html)
+    - Bitmap fonts have been replaced with an embedded TrueType font (see https://mapserver.org/development/rfc/ms-rfc-104.html)
 
-- RFC 98 - Label/Text Rendering Overhaul (http://www.mapserver.org/development/rfc/ms-rfc-98.html) may 
+- RFC 98 - Label/Text Rendering Overhaul (https://mapserver.org/development/rfc/ms-rfc-98.html) may 
   result in subtle label/character placement changes. Support for negative MAXLENGTH that implied forced 
   linebreaks is not supported anymore, workaround implies pre-processing such labels to include linebreaks
   or wrap characters.
@@ -784,7 +922,7 @@ The new requirements are as follows:
 
 * All MapServer templates must be updated to contain the "MapServer Template"
   magic string on the first line. This string can be embedded
-  in a comment depending on the template formet and the whole line will
+  in a comment depending on the template format and the whole line will
   be skipped in the output generation. e.g.
 
   * In HTML: <!-- MapServer Template --> 
@@ -859,7 +997,7 @@ symbol file parser will still recognize the STYLE keyword but it is
 deprecated and should be avoided.
 
 ----------------------------------------------------
-Styling/Symbolgy changes
+Styling/Symbology changes
 ----------------------------------------------------
 Prior to MapsServer 5.0, if a pixmap symbol was used in style on a Line
 Layer, the symbol was used as a brush to draw the line. In MapServer 5.0, 
@@ -875,8 +1013,8 @@ AGG rendering changes
 see `the AGG rendering specifics`_ for the changes relating to the addition
 of the `Antigrain Geometry`_ rendering engine.
 
-.. _`the AGG rendering specifics`: http://mapserver.gis.umn.edu/docs/howto/agg-rendering-specifics
-.. _`Antigrain Geometry`: http://www.antigrain.com
+.. _`the AGG rendering specifics`: https://mapserver.org/output/agg.html
+.. _`Antigrain Geometry`: https://en.wikipedia.org/wiki/Anti-Grain_Geometry
 
 ---------------------------------------------------
 URL configuration changes

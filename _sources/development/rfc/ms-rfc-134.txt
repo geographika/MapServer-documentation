@@ -10,9 +10,12 @@ MS RFC 134: OGC API Support
 :Contact:     tomkralidis@gmail.com
 :Author:      Jeff McKenna
 :Contact:     jmckenna@gatewaygeomatics.com
-:Status:      In progress
-:Last update: 2021-06-23
+:Status:      Adopted
+:Last update: 2021-06-30
 :Version:     MapServer 8.0
+
+.. NOTE::  
+   This document is outdated, please follow the official document: :ref:`ogcapi`
 
 Overview
 ========
@@ -339,6 +342,14 @@ Ticket ID and References
 * `nlohmann/json <https://github.com/nlohmann/json>`__
 * `Inja C++ Templating Library <https://github.com/pantor/inja>`__
 
+Voting history
+==============
+
+::
+
+  +1 from SteveL, JeffM, TomK, EvenR, JukkaR, JeromeB, MikeS, SethG
+
+
 ----
 
 Current Status
@@ -350,25 +361,25 @@ Current Status
    +-------------------------------------------------------------+----------------------+
    | Support                                                     | Status               |
    +=============================================================+======================+
-   | Features: Landing page                                      | |:construction:|     |
+   | Features: Landing page                                      | |construction|       |
    +-------------------------------------------------------------+----------------------+
-   | Features: JSON & HTML output                                | |:heavy_check_mark:| |
+   | Features: JSON & HTML output                                | |green-check-mark|   |
    +-------------------------------------------------------------+----------------------+
-   | Features: Collections (layer listing)                       | |:construction:|     |
+   | Features: Collections (layer listing)                       | |construction|       |
    +-------------------------------------------------------------+----------------------+
-   | Features: Collections (single layer: links (summary)        | |:construction:|     |
+   | Features: Collections (single layer: links (summary)        | |construction|       |
    +-------------------------------------------------------------+----------------------+   
-   | Features: Collections (single layer: query)                 | |:construction:|     |
+   | Features: Collections (single layer: query)                 | |construction|       |
    +-------------------------------------------------------------+----------------------+   
-   | Features: Collections (single layer: list queryable fields) | |:stop_sign:|        |
+   | Features: Collections (single layer: list queryable fields) | |red-cross-mark|     |
    +-------------------------------------------------------------+----------------------+   
-   | Features: Collections (single layer: map)                   | |:stop_sign:|        |
+   | Features: Collections (single layer: map)                   | |red-cross-mark|     |
    +-------------------------------------------------------------+----------------------+      
-   | Features: API docs                                          | |:stop_sign:|        |
+   | Features: API docs                                          | |red-cross-mark|     |
    +-------------------------------------------------------------+----------------------+   
-   | Features: msautotests                                       | |:construction:|     |
+   | Features: msautotests                                       | |construction|       |
    +-------------------------------------------------------------+----------------------+   
-   | Features: user docs on mapserver.org                        | |:stop_sign:|        |
+   | Features: user docs on mapserver.org                        | |red-cross-mark|     |
    +-------------------------------------------------------------+----------------------+   
 
 Issues / Tasks / Wishlist

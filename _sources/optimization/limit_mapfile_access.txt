@@ -11,7 +11,7 @@
 :Contact: sdlime at gmail.com
 :Author: Jeff McKenna
 :Contact: jmckenna at gatewaygeomatics.com
-:Last Updated: 2021-06-03
+:Last Updated: 2022-08-16
 
 The MapServer CGI, by default, will happily attempt to process any mapfile it is 
 asked to. While this might be desireable in a development environment, it is not 
@@ -67,7 +67,24 @@ which will therefore not allow "/../" or "//" in the map value.
       [\/\\\\]{2}|[\/\\\\]?\.{2,}[\/\\\\]|,
       
     For more information see `Securing your MS4W Installation <https://ms4w.com/README_INSTALL.html#securing-your-ms4w-installation>`_
-  
+
+**MS_CONTEXT_BAD_PATTERN**
+
+.. versionadded:: 8.0.1
+
+Regular Expression to catch & not allow problematic character sequences 
+in any map context paths passed to the mapserv CGI in the context=... URL parameter.
+
+See :ref:`ms_context_bad_pattern`
+
+**MS_CONTEXT_PATTERN**
+
+.. versionadded:: 8.0.1
+
+Regular Expression that must be matched by all file paths passed to the mapserv
+CGI in the context=... URL parameter.
+
+See :ref:`ms_context_pattern`
 
 **MS_MAP_NO_PATH**
 
@@ -96,6 +113,16 @@ guide for examples.
 .. note:: 
     If defined, the MS_MAP_PATTERN variable only applies to mapfiles not 
     already defined through an environment variable.
+ 
+.. TIP::
+ 
+   As of the MapServer 8.0 release, there are 2 scenarios where you won't have to 
+   specify *MS_MAP_PATTERN* :
+   
+     1. If using a map alias (set in the *MAPS* section of the MapServer :ref:`config` file).
+     2. If MS_MAP_PATTERN is set in the underlying environment - that is, by
+        the Web server. MapServer will fall back to the environment variables
+        if they exist for any of the :ref:`MS* variables<environment_variables>`.
  
 Setting Environment Variables
 =============================

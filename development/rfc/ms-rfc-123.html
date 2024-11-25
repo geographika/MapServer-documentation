@@ -1,22 +1,26 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>MS RFC 123: Support for MapML output in MapServer &#8212; MapServer 7.6.4 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/ribbon.css" />
+    <title>MS RFC 123: Support for MapML output in MapServer &#8212; MapServer 8.2.2 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx.css?v=6c7b17ac" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=dd298242" />
+    <link rel="stylesheet" type="text/css" href="../../_static/ribbon.css?v=ea091bf4" />
     
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../../_static/documentation_options.js?v=8649718b"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
     
-    <link rel="shortcut icon" href="../../_static/mapserver.ico"/>
+    <link rel="icon" href="../../_static/mapserver.ico"/>
     <link rel="author" title="About these documents" href="../../about.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -27,7 +31,6 @@
 
 
 <!-- for main branch only, do not backport this -->
-<h4 class="ribbon">DOCS PREVIEW</h4>
 
 <table width="100%" style="width: 100%; background-color: white;">
   <tr>
@@ -50,52 +53,13 @@
   <tr>
     <td style="padding: 0px 10px 0px 0px; text-align: right; vertical-align: bottom;">
         <img src="../../_static/flagicons/en.png" alt="en" title="en" border="0" width="18px" height="13px"/>
-        
-          <a href="../../ar/development/rfc/ms-rfc-123.html"><img src="../../_static/flagicons/ar.png" alt="ar" title="ar" border="0" /></a>
-        
-        
-          <a href="../../de/development/rfc/ms-rfc-123.html"><img src="../../_static/flagicons/de.png" alt="de" title="de" border="0" /></a>
-        
-        
-          <a href="../../el/development/rfc/ms-rfc-123.html"><img src="../../_static/flagicons/el.png" alt="el" title="el" border="0" /></a>
-        
-        
-          <a href="../../es/development/rfc/ms-rfc-123.html"><img src="../../_static/flagicons/es.png" alt="es" title="es" border="0" /></a>
-        
-        
-          <a href="../../fr/development/rfc/ms-rfc-123.html"><img src="../../_static/flagicons/fr.png" alt="fr" title="fr" border="0" /></a>
-        
-        
-          <a href="../../id/development/rfc/ms-rfc-123.html"><img src="../../_static/flagicons/id.png" alt="id" title="id" border="0" /></a>
-        
-        
-          <a href="../../it/development/rfc/ms-rfc-123.html"><img src="../../_static/flagicons/it.png" alt="it" title="it" border="0" /></a>
-        
-        
-          <a href="../../ja/development/rfc/ms-rfc-123.html"><img src="../../_static/flagicons/ja.png" alt="ja" title="ja" border="0" /></a>
-        
-        
-          <a href="../../nl_NL/development/rfc/ms-rfc-123.html"><img src="../../_static/flagicons/nl_NL.png" alt="nl_NL" title="nl_NL" border="0" /></a>
-        
-        
-          <a href="../../pl/development/rfc/ms-rfc-123.html"><img src="../../_static/flagicons/pl.png" alt="pl" title="pl" border="0" /></a>
-        
-        
-          <a href="../../ru/development/rfc/ms-rfc-123.html"><img src="../../_static/flagicons/ru.png" alt="ru" title="ru" border="0" /></a>
-        
-        
-          <a href="../../sq/development/rfc/ms-rfc-123.html"><img src="../../_static/flagicons/sq.png" alt="sq" title="sq" border="0" /></a>
-        
-        
-          <a href="../../tr/development/rfc/ms-rfc-123.html"><img src="../../_static/flagicons/tr.png" alt="tr" title="tr" border="0" /></a>
-        
 
     </td>
   </tr>
 </table>
 
 
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -121,40 +85,40 @@
           <div class="body" role="main">
             
   <section id="ms-rfc-123-support-for-mapml-output-in-mapserver">
-<span id="rfc123"></span><h1>MS RFC 123: Support for MapML output in MapServer<a class="headerlink" href="#ms-rfc-123-support-for-mapml-output-in-mapserver" title="Permalink to this headline">¶</a></h1>
+<span id="rfc123"></span><h1>MS RFC 123: Support for MapML output in MapServer<a class="headerlink" href="#ms-rfc-123-support-for-mapml-output-in-mapserver" title="Link to this heading">¶</a></h1>
 <dl class="field-list simple">
-<dt class="field-odd">Author</dt>
+<dt class="field-odd">Author<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Daniel Morissette</p>
 </dd>
-<dt class="field-even">Contact</dt>
+<dt class="field-even">Contact<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference external" href="mailto:dmorissette&#37;&#52;&#48;mapgears&#46;com">dmorissette<span>&#64;</span>mapgears<span>&#46;</span>com</a></p>
 </dd>
-<dt class="field-odd">Status</dt>
+<dt class="field-odd">Status<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Adopted (2020-03-31)</p>
 </dd>
-<dt class="field-even">Last update</dt>
+<dt class="field-even">Last update<span class="colon">:</span></dt>
 <dd class="field-even"><p>2020-03-31</p>
 </dd>
-<dt class="field-odd">Version</dt>
+<dt class="field-odd">Version<span class="colon">:</span></dt>
 <dd class="field-odd"><p>MapServer 8.0</p>
 </dd>
 </dl>
 <section id="overview">
-<h2>1. Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<h2>1. Overview<a class="headerlink" href="#overview" title="Link to this heading">¶</a></h2>
 <p>A common way to deploy web mapping sites in 2019 is to embed JavaScript code in a web page using OpenLayers or Leaflet as the navigation interface.  Those JavaScript libraries can interact with OGC WMS and Tile Services (as well as other OGC service types) if provided with the correct configuration via JavaScript code.  In other words, the map contents, the list of layers, SRS, zoom levels, extents, etc, are specified as JavaScript statements and then rendered by a JavaScript library in a “custom” way that the web browser itself does not “understand”.</p>
 <p>The W3C Maps for HTML Community Group is working to define a (new) “map” HTML element that would be used to define map contents in a web page and would be directly supported and rendered by web browsers in a standardized way. All this is done by building on existing standards such as WMS, WFS and Tile Services. In addition to standardizing the encoding and access to map elements in web browsers, this encoding also aims to make the map contents more easily discoverable and indexable by search bots on the Web.</p>
 <p>A draft specification is available through the working group, and the goal of this RFC is to provide a reference implementation to test the draft spec in real life use cases and promote its more widespread usage.  A similar reference implementation is also available for GeoServer, and we will aim to align this implementation with the GeoServer implementation when possible.</p>
 <p>This project is supported by funding from Natural Resources Canada.</p>
 </section>
 <section id="proposed-solution">
-<h2>2. Proposed solution<a class="headerlink" href="#proposed-solution" title="Permalink to this headline">¶</a></h2>
+<h2>2. Proposed solution<a class="headerlink" href="#proposed-solution" title="Link to this heading">¶</a></h2>
 <p>This RFC proposes the implementation of MapML output in MapServer which consists in two parts:</p>
 <ol class="arabic simple">
 <li><p>Enabling generation of a &lt;mapml&gt; document for a given layer in a mapfile. This will be implemented as a vendor-specific REQUEST=GetMapML extension.</p></li>
 <li><p>Enabling text/mapml as a new INFO_FORMAT for WMS GetFeatureInfo requests, and as a new feature encoding format for WFS GetFeature requests.</p></li>
 </ol>
 <section id="building-enabling-the-mapml-option">
-<h3>2.1 Building/enabling the MapML option<a class="headerlink" href="#building-enabling-the-mapml-option" title="Permalink to this headline">¶</a></h3>
+<h3>2.1 Building/enabling the MapML option<a class="headerlink" href="#building-enabling-the-mapml-option" title="Link to this heading">¶</a></h3>
 <p>MapML support will be enabled by default if WMS support is enabled. It can be disabled at compile time using the following CMake options:</p>
 <blockquote>
 <div><p>cmake .. -DWITH_MAPML=0</p>
@@ -163,7 +127,7 @@
 <p>If the (optional) OGR MapML driver is available then it will be used for enhanced text/mapml output in WMS GetFeatureInfo and WFS GetFeature responses (see section 4.3 below).</p>
 </section>
 <section id="mapfile-configuration-parameters">
-<h3>2.2 MapFile configuration parameters<a class="headerlink" href="#mapfile-configuration-parameters" title="Permalink to this headline">¶</a></h3>
+<h3>2.2 MapFile configuration parameters<a class="headerlink" href="#mapfile-configuration-parameters" title="Link to this heading">¶</a></h3>
 <p>Since MapML is mostly a mechanism to refer to OGC services (WMS, WFS and tile services), the MapML implementation automatically leverages existing WMS and WFS mapfile configuration parameters for the map and layers being served.</p>
 <p>In particular, the following mapfile configuration parameters will impact the MapML output and behaviours:</p>
 <ul class="simple">
@@ -189,14 +153,9 @@
 </ul>
 </section>
 <section id="the-vendor-specific-getmapml-request">
-<h3>2.4 The Vendor-specific GetMapML Request<a class="headerlink" href="#the-vendor-specific-getmapml-request" title="Permalink to this headline">¶</a></h3>
+<h3>2.4 The Vendor-specific GetMapML Request<a class="headerlink" href="#the-vendor-specific-getmapml-request" title="Link to this heading">¶</a></h3>
 <p>A new vendor-specific “REQUEST=GetMapML” has been added to MapServer to request a &lt;mapml&gt; document for a specified service type (WMS, WFS) and map/layer/style/projection combination. A valid WMS mapfile is required and the request supports the following URL parameters:</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 8%" />
-<col style="width: 3%" />
-<col style="width: 89%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
 <th class="head"><p>R/O</p></th>
@@ -250,7 +209,7 @@
 </div>
 </section>
 <section id="updates-to-getcapabilities">
-<h3>2.5 Updates to GetCapabilities<a class="headerlink" href="#updates-to-getcapabilities" title="Permalink to this headline">¶</a></h3>
+<h3>2.5 Updates to GetCapabilities<a class="headerlink" href="#updates-to-getcapabilities" title="Link to this heading">¶</a></h3>
 <dl class="simple">
 <dt>If MapML is enabled in the mapfile then:</dt><dd><ul class="simple">
 <li><p>WMS GetCapabilities will include a reference to the vendor-specific GetMapML request, and text/mapml will be listed as a GetFeatureInfo format if enabled.</p></li>
@@ -260,7 +219,7 @@
 </dl>
 </section>
 <section id="mapml-usage-example">
-<h3>2.6 MapML usage example<a class="headerlink" href="#mapml-usage-example" title="Permalink to this headline">¶</a></h3>
+<h3>2.6 MapML usage example<a class="headerlink" href="#mapml-usage-example" title="Link to this heading">¶</a></h3>
 <p>In a typical use case, a web developer includes a &lt;mm-map&gt; HTML element in a web page as follows (this example uses the Leaflet polyfill viewer):</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
@@ -268,9 +227,9 @@
     <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&#39;utf-8&#39;</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/mapml/viewer/bower_components/webcomponentsjs/webcomponents-lite.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;import&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/mapml/viewer/bower_components/web-map/web-map.html&quot;</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span><span class="w"></span>
-<span class="w">     </span><span class="o">*</span><span class="w"> </span><span class="p">{</span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;}</span><span class="w"></span>
-<span class="w">     </span><span class="nt">map</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="n">flexbox</span><span class="p">;</span><span class="w"> </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">vh</span><span class="p">;}</span><span class="w"></span>
+    <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="w">     </span><span class="o">*</span><span class="w"> </span><span class="p">{</span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;}</span>
+<span class="w">     </span><span class="nt">map</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="n">flexbox</span><span class="p">;</span><span class="w"> </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">vh</span><span class="p">;}</span>
 <span class="w">    </span><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
   <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
@@ -342,47 +301,47 @@
 </section>
 </section>
 <section id="implementation-details">
-<h2>3. Implementation Details<a class="headerlink" href="#implementation-details" title="Permalink to this headline">¶</a></h2>
+<h2>3. Implementation Details<a class="headerlink" href="#implementation-details" title="Link to this heading">¶</a></h2>
 <p>Most of the MapML support code will live in mapml.c, with hooks calling it from mapwms.c and mapwfs.c.</p>
 <p>A set of msautotests will be added to test the new features.</p>
 </section>
 <section id="limitations-caveats">
-<h2>4. Limitations / caveats<a class="headerlink" href="#limitations-caveats" title="Permalink to this headline">¶</a></h2>
+<h2>4. Limitations / caveats<a class="headerlink" href="#limitations-caveats" title="Link to this heading">¶</a></h2>
 <section id="mapml-viewer-polyfill">
-<h3>4.1 MapML Viewer Polyfill<a class="headerlink" href="#mapml-viewer-polyfill" title="Permalink to this headline">¶</a></h3>
+<h3>4.1 MapML Viewer Polyfill<a class="headerlink" href="#mapml-viewer-polyfill" title="Link to this heading">¶</a></h3>
 <p>Since there is no direct support for MapML in web browsers at this time, the use of a MapML polyfill (based on Leaflet) is required in order to use MapML in web pages.  More details will be provided in the docs for this feature.</p>
 </section>
 <section id="experimental-spec">
-<h3>4.2 Experimental spec<a class="headerlink" href="#experimental-spec" title="Permalink to this headline">¶</a></h3>
+<h3>4.2 Experimental spec<a class="headerlink" href="#experimental-spec" title="Link to this heading">¶</a></h3>
 <p>This reference implementation should be considered experimental since the MapML spec itself is still a work in progress by the W3C Maps for HTML Community Group. The spec is likely to change over time until an official version is adopted and this should be kept in mind when deploying services.</p>
 <p>You are also encouraged to get involved and provide feedback by joining the Maps for HTML Community Group at <a class="reference external" href="https://www.w3.org/community/maps4html/">https://www.w3.org/community/maps4html/</a></p>
 <p>Most of the implementation is in a single mapml.c source file, so if this extension ever becomes unused or unsupported then it can be removed from the source base in a future release relatively easily.</p>
 </section>
 <section id="wms-getfeatureinfo-and-wfs-getfeature-output">
-<h3>4.3 WMS GetFeatureInfo and WFS GetFeature output<a class="headerlink" href="#wms-getfeatureinfo-and-wfs-getfeature-output" title="Permalink to this headline">¶</a></h3>
+<h3>4.3 WMS GetFeatureInfo and WFS GetFeature output<a class="headerlink" href="#wms-getfeatureinfo-and-wfs-getfeature-output" title="Link to this heading">¶</a></h3>
 <p>In the initial implementation, WMS GetFeatureInfo queries will only produce a basic attribute table response without the geometry, suitable for use in a popup over a map for instance.</p>
 <p>In a second phase of work, an OGR &lt;mapml&gt; driver will be implemented and once it is available then MapServer will be upgraded to use this OGR driver for the text/mapml feature collection output format in response to WMS GetFeatureinfo and WFS GetFeature requests.  This will introduce a dependency on this OGR driver for full feature collection support but the rest of the MapML code can still work without the driver if not available.</p>
 </section>
 </section>
 <section id="backwards-compatibility-issues">
-<h2>5. Backwards Compatibility Issues<a class="headerlink" href="#backwards-compatibility-issues" title="Permalink to this headline">¶</a></h2>
+<h2>5. Backwards Compatibility Issues<a class="headerlink" href="#backwards-compatibility-issues" title="Link to this heading">¶</a></h2>
 <p>None anticipated as this is a new feature.</p>
 </section>
 <section id="security-implications">
-<h2>6. Security implications<a class="headerlink" href="#security-implications" title="Permalink to this headline">¶</a></h2>
+<h2>6. Security implications<a class="headerlink" href="#security-implications" title="Link to this heading">¶</a></h2>
 <p>None anticipated at the moment.</p>
 </section>
 <section id="performance-implications">
-<h2>7. Performance implications<a class="headerlink" href="#performance-implications" title="Permalink to this headline">¶</a></h2>
+<h2>7. Performance implications<a class="headerlink" href="#performance-implications" title="Link to this heading">¶</a></h2>
 <p>No impacts on core performance are anticipated.</p>
 </section>
 <section id="documentation-needs">
-<h2>8. Documentation needs<a class="headerlink" href="#documentation-needs" title="Permalink to this headline">¶</a></h2>
+<h2>8. Documentation needs<a class="headerlink" href="#documentation-needs" title="Link to this heading">¶</a></h2>
 <p>A new documentation page will be added outlining the various MapML output configuration scenarios and parameters (in the style of the OGC WMS Server page for instance).</p>
 <p>A step by step example will also be provided including instructions to deploy the Leaflet viewer polyfill on a server and how to use it in a webpage.</p>
 </section>
 <section id="ticket-id-and-references">
-<h2>9. Ticket ID and references<a class="headerlink" href="#ticket-id-and-references" title="Permalink to this headline">¶</a></h2>
+<h2>9. Ticket ID and references<a class="headerlink" href="#ticket-id-and-references" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>MapServer Ticket: <a class="reference external" href="https://github.com/MapServer/MapServer/issues/6024">https://github.com/MapServer/MapServer/issues/6024</a></p></li>
 <li><p>W3C Maps For HTML Community Group: <a class="reference external" href="https://www.w3.org/community/maps4html/">https://www.w3.org/community/maps4html/</a></p></li>
@@ -395,7 +354,7 @@
 </ul>
 </section>
 <section id="voting-history">
-<h2>10. Voting history<a class="headerlink" href="#voting-history" title="Permalink to this headline">¶</a></h2>
+<h2>10. Voting history<a class="headerlink" href="#voting-history" title="Link to this heading">¶</a></h2>
 <p>Adopted with +1 from PSC members EvenR, SethG, JeromeB, MichaelS, JukkaR, TomK, JeffM, SteveL, DanielM.</p>
 </section>
 </section>
@@ -405,9 +364,9 @@
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
@@ -415,8 +374,8 @@
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
-<script>$('#searchbox').show(0);</script><h3>Navigation</h3>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
 <p>
 <a href="../../about.html" title="About">About</a><br>
 <a href="../../products.html" title="Products">Products</a><br>
@@ -461,7 +420,7 @@
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -480,9 +439,9 @@
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; <a href="../../copyright.html">Copyright</a> 2022, Open Source Geospatial Foundation.
-      Last updated on 2022-04-04.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+    &#169; <a href="../../copyright.html">Copyright</a> 2024, Open Source Geospatial Foundation.
+      Last updated on 2024-11-01.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.0.2.
     </div>
   </body>
 </html>

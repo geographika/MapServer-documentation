@@ -6,7 +6,7 @@
 
 :Author:       Jeff McKenna
 :Contact:      jmckenna at gatewaygeomatics.com
-:Last Updated: 2022-01-25
+:Last Updated: 2022-04-25
 
 .. contents:: Table of Contents
     :depth: 3
@@ -233,6 +233,8 @@ Mapfile Example
     CONNECTIONTYPE POSTGIS
     CONNECTION "host=127.0.0.1 user=postgres password=postgres port=5432 dbname=canada"
     DATA "wkb_geometry FROM province USING UNIQUE ogc_fid USING srid=3978"
+    EXTENT -2340603.750000 -719746.062500 3009430.500000 3836605.250000 # for maximum performance
+    PROCESSING "CLOSE_CONNECTION=DEFER" # for maximum performance    
     CLASS
       NAME "Provincial Land"
       STYLE
@@ -310,7 +312,7 @@ Next specify the *table* and *column*, with the *-nomd* switch, such as:
     gdalinfo PG:"host=127.0.0.1 port=5432 user=postgres password=postgres dbname=mydb table=lunenburg_colorhillshade column=rast" -nomd
      
 which returns a summary of the raster, including its projection 
-(`EPSG:2961 <https://epsg.io/2961>`__) :
+(`EPSG:2961 <https://spatialreference.org/ref/epsg/2961/>`__) :
 
 ::
 
@@ -370,12 +372,12 @@ as:
    the `PostGIS Raster Driver <https://gdal.org/drivers/raster/postgisraster.html>`__ 
    page for more info.  
 
-Test with shp2img
+Test with map2img
 #################
 
 ::
 
-  shp2img -m postgis.map -o ttt.png -map_debug 3
+  map2img -m postgis.map -o ttt.png -map_debug 3
   
     msDrawMap(): rendering using outputformat named png (AGG/PNG).
     msDrawMap(): WMS/WFS set-up and query, 0.000s
@@ -459,7 +461,7 @@ An example MapServer layer might look like:
     END
   END
   
-And testing with :ref:`shp2img` should produce a map image of:
+And testing with :ref:`map2img` should produce a map image of:
 
 .. image:: ../../images/circularstring.png
 
@@ -492,7 +494,7 @@ An example MapServer layer might look like:
     END
   END
   
-And testing with :ref:`shp2img` should produce a map image of:
+And testing with :ref:`map2img` should produce a map image of:
 
 .. image:: ../../images/compoundcurve.png
 
@@ -526,7 +528,7 @@ An example MapServer layer might look like:
     END
   END
   
-And testing with :ref:`shp2img` should produce a map image of:
+And testing with :ref:`map2img` should produce a map image of:
 
 .. image:: ../../images/curvepolygon.png
 
@@ -559,7 +561,7 @@ An example MapServer layer might look like:
     END
   END
   
-And testing with :ref:`shp2img` should produce a map image of:
+And testing with :ref:`map2img` should produce a map image of:
 
 .. image:: ../../images/multicurve.png
 
@@ -594,7 +596,7 @@ An example MapServer layer might look like:
     END
   END
   
-And testing with :ref:`shp2img` should produce a map image of:
+And testing with :ref:`map2img` should produce a map image of:
 
 .. image:: ../../images/multisurface.png
 

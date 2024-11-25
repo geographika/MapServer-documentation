@@ -11,7 +11,7 @@
 :Contact:      david.fawcett at gmail.com
 :Author:       Jeff McKenna
 :Contact:      jmckenna at gatewaygeomatics.com
-:Last Updated: 2021-04-13
+:Last Updated: 2024-06-20
 
 .. contents:: Table of Contents
     :depth: 3
@@ -58,14 +58,14 @@ MapServer listed on the page at :ref:`editing`.
 ---------------------------------
 
 If optimization and performance are important to you, then get to know and love
-the MapServer commandline utility :ref:`shp2img`. *shp2img* will verify that your 
+the MapServer commandline utility :ref:`map2img`. *map2img* will verify that your 
 mapfile creates a valid map image, but it can also display draw times (length of 
 time it takes MapServer to process each layer and the final map image) with the
 *-map_debug 3* setting:
 
 ::
 
-  shp2img -m osm.map -o ttt.png -map_debug 3
+  map2img -m osm.map -o ttt.png -map_debug 3
   
   msDrawMap(): rendering using outputformat named png (AGG/PNG).
   msDrawMap(): WMS/WFS set-up and query, 0.000s
@@ -95,7 +95,7 @@ such as:
 
 ::
 
-  shp2img -m osm.map -o ttt.png -map_debug 3 -l buildings13
+  map2img -m osm.map -o ttt.png -map_debug 3 -l buildings13
   
   msDrawMap(): rendering using outputformat named png (AGG/PNG).
   msDrawMap(): WMS/WFS set-up and query, 0.000s
@@ -107,7 +107,7 @@ such as:
   
 
 .. NOTE::
-    :ref:`shp2img` should be included in your
+    :ref:`map2img` should be included in your
     MapServer installation (`MS4W <https://ms4w.com>`__ users
     need to execute *setenv.bat* before using the utility).
     
@@ -138,7 +138,7 @@ from various sources such as from the PROJ library, GDAL library, etc.
 -----------------------------------------------------------
 
 There are times when your mapfile generates a valid map image with a local
-shp2img command, but then the same mapfile will cause an error in a map
+map2img command, but then the same mapfile will cause an error in a map
 request through the web server, such as Apache.  It is these times when
 you should try the same request, that was sent through your web server, at 
 the commandline with the actual *mapserv* (or on Windows, the *mapserv.exe*) 
@@ -158,7 +158,7 @@ You can use this to also test problematic WMS GetMap requests as well:
   mapserv -nh "QUERY_STRING=SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&BBOX=41.42710000000000292,-173.4329999999999927,83.74660000000000082,-13.04809999999999981&CRS=EPSG:4326&WIDTH=369&HEIGHT=98&LAYERS=park&STYLES=&FORMAT=image/png&DPI=96&MAP_RESOLUTION=96&FORMAT_OPTIONS=dpi:96&TRANSPARENT=TRUE" > test.png
   
 **Note:** Besides checking your web server logs, you can also use QGIS to get the exact 
-request to your OWS (WMS/WFS etc.) service: see https://github.com/mapserver/mapserver/wiki/Get-the-Raw-WMS-Request-Generated-by-QGIS
+request to your OWS (WMS/WFS etc.) service: see https://github.com/MapServer/MapServer/wiki/Get-the-Raw-WMS-Request-Generated-by-QGIS
    
 .. image:: ../images/qgis-network-logger.png
     :width: 800    

@@ -11,7 +11,7 @@
 :Contact:       warmerdam at pobox.com
 :Author:        Jeff McKenna
 :Contact:       jmckenna at gatewaygeomatics.com
-:Last Updated:  2021-11-13
+:Last Updated:  2022-08-20
 
 .. contents:: Table of Contents
     :depth: 2
@@ -34,7 +34,7 @@ How are rasters added to a Map file?
 A simple raster layer declaration looks like this. The `DATA` file is
 interpreted relative to the `SHAPEPATH`, much like vector files.
 
-::
+.. code-block:: mapfile
 
     LAYER
       NAME "JacksonvilleNC_CIB"
@@ -74,7 +74,7 @@ with that pixel value ("[red]", "[green]" and "[blue]") are available for use
 in classifications. When used in an evaluated expression the pixel, red, green
 and blue keywords must be in lower case.
 
-::
+.. code-block:: mapfile
 
     LAYER
       NAME "JacksonvilleNC_CIB"
@@ -160,7 +160,7 @@ range -10 to 10 are classified. In particular, the values classified would be
 four value are classified, and one of the classification results is selected
 based on which value is closest to the pixel value being classified.
 
-::
+.. code-block:: mapfile
 
     LAYER
       NAME grid1
@@ -267,7 +267,7 @@ system (projection). This requires specifying the :ref:`TILESRS
 <tilesrs>` keyword and generating the tileindex with a few additional
 options. See :ref:`tileindex_mixed_srs`.
 
-::
+.. code-block:: mapfile
 
   LAYER
     NAME "hpool"
@@ -469,6 +469,22 @@ are supported in MapServer 4.0 and newer.
        PROCESSING "EXTENT_PRIORITY=WORLD"
       
 .. index::
+   triple: LAYER; PROCESSING; GAMMA
+
+**GAMMA=<numeric_value>**
+    This directive (MapServer 8.4+) instructs the GDAL reader to apply a
+    `gamma correction <https://en.wikipedia.org/wiki/Gamma_correction>`__ step.
+    The default value is 1.0 (no gamma correction).
+    It is performed after classification, if any.
+    It does not apply to raw rendering.
+
+    Example:
+
+    ::
+
+       PROCESSING "GAMMA=0.75"
+
+.. index::
    triple: LAYER; PROCESSING; LOAD_FULL_RES_IMAGE
 
 **LOAD_FULL_RES_IMAGE=YES/NO**
@@ -595,7 +611,7 @@ are supported in MapServer 4.0 and newer.
 **SCALE[_n]=AUTO or min,max**
     This directive instructs the GDAL reader to pre-scale the incoming raster
     data. It is primarily used to scale 16bit or floating point data to the
-    range 0-255, but can also be used to constrast stretch 8bit data. If an
+    range 0-255, but can also be used to contrast stretch 8bit data. If an
     explicit min/max are provided then the input data is stretch (or squished)
     such that the minimum value maps to zero, and the maximum to 255. If AUTO
     is used instead, a min/max is automatically computed. To control the
@@ -633,6 +649,85 @@ are supported in MapServer 4.0 and newer.
       
 .. index::
    pair: Raster; Query
+
+.. _rasterlabel:
+
+Raster Labelling
+================
+
+.. versionadded:: 8.4
+
+This is the ability to render labels from raster pixel values,
+as an alternative or complement to other typical raster rendering (grayscale,
+classification, etc.). Typical applications are for temperature, wind, humidity,
+slopes, altitude, noise, pollution, etc.
+
+Visual example:
+
+ .. image:: ../images/rasterlabel.png
+
+LAYER Description
+-----------------
+
+A raster labelling layer :ref:`LAYER` is a hybrid layer, which has a raster data
+source as input and vector features as output.  The output features
+are represented as points.  Queries are not supported.
+
+Since the data source is a raster, all raster processing options can
+be used (e.g. RESAMPLE).  RESAMPLE=AVERAGE generally gives a good
+result, and the default.  This can be overridden by explicitly
+specifying the type of resampling.
+
+Vector field layers are of `TYPE` `point`, and have `CONNECTIONTYPE`
+`rasterlabel`. The raster data set is specified in `DATA`. The band to label
+is set through the `PROCESSING` `BANDS` option.
+
+LAYER Attributes
+----------------
+
+The rasterlabel connection type offers the following attribute:
+
+* [value]: the raw value
+
+Optional `PROCESSING` Settings
+------------------------------
+
+* `BANDS=<num>`: Specify the band to label. Not needed if there is a single band.
+* `LABEL_SPACING=<num>`: The spacing is simply the distance, in pixels, between points
+  to be displayed in the vector field. Default is 32.
+* `RESAMPLE=NEAREST/AVERAGE/BILINEAR`: Defaults to AVERAGE.
+* `ALLOW_OVERSAMPLE=YES/NO`: Whether it is allowed to oversample the raster at
+  a resolution higher than its nominal resolution. Default is NO, meaning that
+  when zooming in beyond the nominal resolution of the raster, at most one
+  point will be generated for each source pixel. This gives to the user a sense
+  of the resolution of the data it displays.
+
+Example of a layer definition
+-----------------------------
+
+.. code-block:: mapfile
+
+  LAYER
+    NAME "temperature"
+    TYPE POINT
+    CONNECTIONTYPE RASTERLABEL
+    PROJECTION
+      "init=epsg:4326"
+    END
+    DATA "data/temperature.tif"
+    # PROCESSING "BANDS=1"
+    # PROCESSING "LABEL_SPACING=32"
+    # PROCESSING "RESAMPLE=AVERAGE"
+    # PROCESSING "ALLOW_OVERSAMPLE=NO"
+    CLASS
+        TEXT (tostring([value],"%.1f")+"°")
+        LABEL
+          TYPE TRUETYPE
+          SIZE 7
+        END # label
+    END # class
+  END
+
 
 Raster Query
 ============
@@ -926,10 +1021,10 @@ flexible gdalwarp utility::
   gdalwarp -rc -tr 250 250 ortho_*.tif overview.tif
 
 In some cases the easiest way of generating an overview is to let
-MapServer do it using the shp2img utility.  For instance if the
+MapServer do it using the map2img utility.  For instance if the
 tileindex layer is called ''orthos'' we could do something like::
 
-  shp2img -m ortho.map -l orthos -o overview.png 
+  map2img -m ortho.map -l orthos -o overview.png 
 
 Note that the overview will be generated with the extents and size in
 the .map file, so it may be necessary to temporarily adjust the map

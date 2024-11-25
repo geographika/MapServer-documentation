@@ -7,7 +7,7 @@
 Bugs/issues for the MapServer source code (or msautotest) should be submitted through GitHub 
 at https://github.com/MapServer/MapServer/issues . Bugs/issues related to documentation or the demo server should be submitted through GitHub 
 in the `docs` repository at https://github.com/MapServer/MapServer-documentation/issues . You will first 
-need to create a free personal account at GitHub (https://github.com/plans).
+need to create a free personal account at GitHub (https://github.com/pricing).
 
 Please keep the following issues in mind when submitting a bug/issue:
 
@@ -44,7 +44,7 @@ bug, having to fix paths, remove unnecessary layers, removing references to
 external symbols or fonts that were not included or even needed and otherwise
 doctoring your test case to get it to a point when they can actually use it.
 
-If the bug is easily demonstrated with ":ref:`shp2img`", without the need to
+If the bug is easily demonstrated with ":ref:`map2img`", without the need to
 setup a proper web service and test it through http, then please show it that
 way. If a standalone :ref:`mapscript` script can demonstrate a problem without it
 having to be a web service, likewise submit it that way.  If your problem 

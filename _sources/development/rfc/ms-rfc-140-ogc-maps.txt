@@ -1,0 +1,152 @@
+.. _rfc140:
+
+================================================
+MS RFC 140: OGC Maps API Support
+================================================
+
+:Author: 	Seth Girvin
+:Contact: 	sethg@geographika.co.uk
+:Last Updated:  2024-09-29
+:Version: 	MapServer 8.4
+:Status: 	Draft
+
+1. Overview
+===========
+
+OGC Features API support was added in :ref:`rfc134` and documented at :ref:`ogcapi`.
+
+The modular nature of OGC API means many parts of the OGC API are already implemented and are shared with the OGC Maps API
+such as landing pages, conformance, and collections. 
+Links:
+
+
+https://github.com/opengeospatial/ogcapi-maps - GitHub repository
+
+
+2.1 Proposed Solution
+=====================
+
+WMS Facade
+
+Lots of code in the mapwms.cpp file that is not required. Grouped layers, filters etc.
+
+Either a cleaner version or construct a WMS request..
+Cleaner version will have duplicated code. Move to smaller functions?
+
+
+``mapserv -v``
+
+``"SUPPORTS=OGCAPI_SERVER"`` will remain unchanged. Services implemented will be listed at the landing page.
+
+https://www.mapserver.org/ogc/ogc_api.html#metadata
+Remain the same. Additional items?
+
+ "ows_enable_request"    "*" #REQUIRED
+
+"wms_enable_request" "GetMap GetFeatureInfo"
+
+    if (msOWSRequestIsEnabled(map, NULL, "M", "GetFeatureInfo", MS_FALSE))
+
+Formats:
+
+https://mapserver.org/ogc/wms_server.html#web-object-metadata
+
+Add a new WEB METADATA item similar to `wms_getmap_formatlist`
+
+
+      "wms_getmap_formatlist" "image/png,image/gif,image/png; mode=24bit,image/jpeg,image/vnd.wap.wbmp,image/tiff,image/svg+xml"
+
+Use OUTPUTFORMAT names?
+
+"oga_getmap_formatlist" "png,gif,tiff"
+
+Add to list, or allow any value?
+
+enum class OGCAPIFormat { JSON, GeoJSON, OpenAPI_V3, HTML };
+
+
+Most setting of parameters from mapwms.cpp lines 1227 onwards
+
+.. code-block::
+
+    int drawquerymap = MS_FALSE;
+
+    // set width and height
+    map->width == -1 || map->height == -1
+    map->outputformat
+    image->resolutionfactor
+
+MS_NONSQUARE option
+
+Turn all layers off except the collection
+
+imageObj *img = msDrawMap(map, drawquerymap);
+
+Legends?
+Styles?
+
+
+How to draw the full map? Similar to WMS using MAP name
+Legends
+GetInfoRequest
+STYLEs
+
+
+    return msWMSGetMap(map, nVersion, req->ParamNames, req->ParamValues,
+                       req->NumParams, wms_exception_format, ows_request);
+
+
+Lots of additional parameter checking and error handling. Returning JSON responses.
+
+Initialise a owsRequestObj based on querystring parameters and pass to WMS
+msWMSDispatch(map, request, &ows_request, MS_FALSE);
+
+JSON exceptions for WMS but some are text/xml
+
+
+
+
+
+2.2 Limitations
+===============
+
+Don't implement styles yet?
+
+2.3 Testing
+===========
+
+CITE testing.
+Add a demo server and URL?
+Add as part of CI. Long-term - better - can check on each deployment?
+
+- test invalid collection name
+- test beyond MAXWIDTH and MAXHEIGHT
+
+2.4 Security Concerns
+=====================
+
+2.5 MapScript
+=============
+
+
+3. Implementation Details
+=========================
+
+3.1 Affected files
+------------------
+
++ mapogcsld.cpp
++ mapogcsld.h
+
+3.2 Ticket Reference
+--------------------
+
++ TODO
+
+3.3 Documentation
+-----------------
+
+TODO
+
+4. Voting History
+=================
