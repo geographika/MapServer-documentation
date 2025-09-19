@@ -11,7 +11,7 @@
 :Contact: jmckenna at gatewaygeomatics.com
 :Author: Even Rouault
 :Contact: even.rouault at mines-paris.org
-:Last Updated: 2024-07-08
+:Last Updated: 2025-04-14
 
 .. contents::
     :depth: 2
@@ -72,7 +72,7 @@ certain libraries:
 - GDAL/OGR: I/O support libraries. Version 1.6.0 or greater is required.
 
 Please see the MapServer :ref:`UNIX Compilation and Installation HowTo
-<unix>` for detailed instructions on compiling mapserver with support
+<unix>` for detailed instructions on compiling MapServer with support
 for these libraries and features.  For Windows users, the `MS4W`_
 installer comes ready to serve both WFS and WMS.
 
@@ -746,7 +746,7 @@ Web Object Metadata
 **wfs_features_cache_size**
   (Optional, since MapServer 7.2) Maximum amount of RAM allowed to cache
   features during the first query pass, so as not to be asked again to
-  the datasource when geneating the GML or OGR output.
+  the datasource when generating the GML or OGR output.
   If wfs_features_cache_count   is also set, the most limiting will be honoured.
   By default the value is in bytes, unless the " MB" suffix is specified.
   Note: this is an advanced setting.
@@ -1030,8 +1030,7 @@ Layer Object
   a mix of geometry types, and "None" is sometimes suitable for layers without
   geometry.  Note that layers which are a mix of polygon and multipolygon 
   would normally have to be described as "Geometry".  To produce 2.5D output
-  append "25D" to the geometry type (ie. "Polygon25D").   Note that Z values
-  are only carried by MapServer if built with USE_POINT_Z_M support.
+  append "25D" to the geometry type (i.e. "Polygon25D").
 
   ::
 
@@ -1259,7 +1258,7 @@ Layer Object
    triple: WFS; METADATA; wfs_getfeature_formatlist    
 
 **wfs_getfeature_formatlist**
-  (Optional) Comma-separted list of formats that should be valid for a
+  (Optional) Comma-separated list of formats that should be valid for a
   GetFeature request.  If defined, only these formats are advertised
   in the Capabilities document.
 
@@ -1353,7 +1352,7 @@ Layer Object
 
 **wfs_srs**
   If there is no SRS defined at the top-level in the mapfile then this
-  SRS will be used to advertize this feature type (layer) in the
+  SRS will be used to advertise this feature type (layer) in the
   capabilities. See the note about the SRS rules in WFS.
 
 .. index:: 
@@ -1365,13 +1364,16 @@ Layer Object
 .. index::
    triple: WFS; METADATA; wfs_use_default_extent_for_getfeature
 
+.. _wfs_use_default_extent_for_getfeature:
+
 **wfs_use_default_extent_for_getfeature**
   (Optional, since MapServer 7.0.4) Whether the MAP.EXTENT should be used in
   request to datasources in the absence of other spatial filter. This is the
   default behaviour, but this might affect performance in some use cases. In
-  those cases, setting this item to "false" will avoid he default spatial filter to
-  be appended to the request. This is only implemented for OGR datasources (since 7.0.4)
-  and MSSQL2008 connections (since 7.6)
+  those cases, setting this item to "false" will avoid the default spatial filter to
+  be appended to the request. This is only implemented for OGR datasources (since 7.0.4),
+  MSSQL2008 (since 7.6), and PostGIS connections (since 8.4).
+  Use **ows_use_default_extent_for_getfeature** to set for both WFS and :ref:`ogcapi`.
 
 Layer Metadata API
 ----------------------
@@ -1400,14 +1402,14 @@ To-do Items and Known Limitations
 
 .. _`OGC Web Feature Service Implementation Specification`: https://portal.ogc.org/files/?artifact_id=7176
 .. _`Geography Markup Language Implementation Specification`: https://portal.ogc.org/files/?artifact_id=7174
-.. _`OGC Web Services Workshop package`: http://mapserver.github.io/ms-ogc-workshop/
+.. _`OGC Web Services Workshop package`: https://mapserver.github.io/ms-ogc-workshop/
 .. _`MS4W`: https://ms4w.com
 .. _`WFS 1.0.0 specification`: https://portal.ogc.org/files/?artifact_id=7176
 .. _`QGIS`: https://qgis.org/
 .. _`Deegree`: https://www.deegree.org/
-.. _`uDig`: http://udig.refractions.net/
+.. _`uDig`: https://en.wikipedia.org/wiki/UDig
 .. _`WFS 1.0.0 spec`: https://portal.ogc.org/files/?artifact_id=7176
-.. _`GeoServer`: http://geoserver.org
+.. _`GeoServer`: https://geoserver.org
 .. _`TinyOWS`: https://mapserver.org/tinyows/
 .. _`GML2 request output`: https://demo.mapserver.org/cgi-bin/wfs?SERVICE=WFS&VERSION=1.0.0&REQUEST=getfeature&TYPENAME=continents&MAXFEATURES=1&OUTPUTFORMAT=gml2
 .. _`GML3 request output`: https://demo.mapserver.org/cgi-bin/wfs?SERVICE=WFS&VERSION=1.0.0&REQUEST=getfeature&TYPENAME=continents&MAXFEATURES=1&OUTPUTFORMAT=gml3

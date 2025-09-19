@@ -63,7 +63,7 @@ If you don't have the driver, you might want to try the `FWTools`_ or `MS4W`_
 packages, which include the driver.
 
 .. _`FWTools`: http://fwtools.maptools.org/
-.. _`MS4W`: http://www.ms4w.com
+.. _`MS4W`: https://ms4w.com
 
 Once you have the KML driver you are ready to try an ogrinfo command on your
 file to get a list of available layers:
@@ -158,7 +158,7 @@ by using the '--formats' command:
 
 If you don't have the driver, you might want to try the `FWTools`_ or `MS4W`_
 packages, which include the driver.  Or you can follow the 
-`compiling notes <https://trac.osgeo.org/gdal/wiki/LibKML>`__ for
+`Building from source <https://gdal.org/en/stable/development/building_from_source.html>`__ for
 libKML and GDAL/OGR.
 
 Once you have the LIBKML driver you are ready to try an ogrinfo command on your
@@ -262,7 +262,7 @@ by using the '--formats' command:
      ...
 
 If you don't have the driver, you might want to check if your platform has a 
-ready-to-use package/installer (Windows users please see `MS4W <http://www.ms4w.com>`_), 
+ready-to-use package/installer (Windows users please see `MS4W <https://ms4w.com>`_), 
 which include the driver.
 
 
